@@ -186,6 +186,38 @@
     .btn-calc:hover { opacity: .85; }
     .btn-calc:active { opacity: 1; }
 
+    /* ── CALCULATOR PILLS ── */
+    .calc-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .calc-pill {
+      font-family: var(--sans);
+      font-size: .88rem;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 99px;
+      border: 1.5px solid var(--rule);
+      background: var(--cream);
+      color: var(--muted);
+      text-decoration: none;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .calc-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .calc-pill.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-weight: 600;
+    }
+
     @media (max-width: 720px) {
       .hero { padding: 20px 0 16px; }
       .hero-sub { font-size: .82rem; }
@@ -398,6 +430,15 @@
 <section class="content-section wrap" aria-labelledby="other-heading">
   <h2 class="section-heading" id="other-heading">More free calculators</h2>
   <p>PercentPro offers a suite of free calculators for everyday math. Each tool is fast, mobile-friendly, and requires no signup.</p>
+
+  <nav class="calc-pills" aria-label="Calculator pages">
+    <a href="/" class="calc-pill active">Percentage Calculator</a>
+    <a href="/tip-calculator" class="calc-pill">Tip Calculator</a>
+    <a href="/discount-calculator" class="calc-pill">Discount Calculator</a>
+    <a href="/gpa-calculator" class="calc-pill">GPA Calculator</a>
+    <a href="/tax-calculator" class="calc-pill">Tax Calculator</a>
+  </nav>
+
   <div class="use-cases" style="margin-top:24px;">
     <a href="/tip-calculator" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
       <div class="use-case-icon">🍽️</div>
