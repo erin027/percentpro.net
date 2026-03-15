@@ -226,10 +226,16 @@ details[open] summary::after { content: '−'; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 720px) {
-  /* All padded containers use the same side spacing */
+  /* Bulletproof side padding — applied at body level so nothing can miss it */
+  body { padding: 0 16px; }
+
+  /* Reset padding on elements that center themselves so there's no double-padding */
   .wrap,
   .header-inner,
-  .footer-inner { padding-left: 16px; padding-right: 16px; }
+  .footer-inner { padding-left: 0; padding-right: 0; }
+
+  /* header spans full width so needs negative margin to break out of body padding */
+  header { margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
 
   h1 { font-size: 1.3rem; }
   .content-section { padding: 36px 0; }
@@ -263,9 +269,8 @@ details[open] summary::after { content: '−'; }
 }
 
 @media (max-width: 400px) {
-  .wrap,
-  .header-inner,
-  .footer-inner { padding-left: 12px; padding-right: 12px; }
+  body { padding: 0 12px; }
+  header { margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
 
   .use-cases { grid-template-columns: 1fr; }
   h1 { font-size: 1.15rem; }
