@@ -34,7 +34,7 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* ── LAYOUT ── */
-.wrap { max-width: 860px; margin: 0 auto; padding: 0; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
 
 /* ── HEADER ── */
 header {
@@ -44,7 +44,7 @@ header {
 }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
-  max-width: 860px; margin: 0 auto; padding: 0 24px;
+  max-width: 860px; margin: 0 auto; padding: 0;
 }
 .logo {
   font-family: var(--serif);
