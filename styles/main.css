@@ -93,6 +93,8 @@ header {
 /* ── MAIN ── */
 main{
 padding:0 25px;
+  max-width: 860px;
+    margin: 0 auto;
 }
 /* ── FOOTER ── */
 footer {
