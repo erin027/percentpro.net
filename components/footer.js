@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const footer = `
     <footer>
-      <div class="wrap footer-inner">
+      <div class="footer-inner">
         <div class="footer-logo">Percent<span style="color:var(--accent)">Pro</span></div>
         <nav class="footer-links" aria-label="Footer navigation">
           <a href="/">Percentage Calculator</a>
