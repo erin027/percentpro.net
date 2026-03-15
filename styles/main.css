@@ -16,6 +16,7 @@
   --radius: 4px;
   --shadow: 0 2px 12px rgba(15,14,13,.08);
   --shadow-lg: 0 8px 32px rgba(15,14,13,.12);
+  --page-pad: 25px;
 }
 
 /* ── RESET ── */
@@ -31,14 +32,7 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ── LAYOUT ──
-   One variable controls all horizontal padding sitewide.
-   Change --page-pad to adjust spacing everywhere at once.
-*/
-:root {
-  --page-pad: 24px;
-}
-
+/* ── LAYOUT ── */
 .wrap {
   max-width: 860px;
   margin: 0 auto;
@@ -56,7 +50,7 @@ header {
   justify-content: space-between;
   max-width: 860px;
   margin: 0 auto;
-  padding: 10px 25px;
+  padding: 10px var(--page-pad);
 }
 .logo {
   font-family: var(--serif);
@@ -71,7 +65,8 @@ header {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  flex-wrap: wrap;
+  gap: 2px;
 }
 .header-nav a {
   font-family: var(--sans);
@@ -91,11 +86,12 @@ header {
 }
 
 /* ── MAIN ── */
-main{
-padding:0 25px;
+main {
+  padding: 0 var(--page-pad);
   max-width: 860px;
-    margin: 0 auto;
+  margin: 0 auto;
 }
+
 /* ── FOOTER ── */
 footer {
   border-top: 1.5px solid var(--rule);
@@ -104,7 +100,7 @@ footer {
 .footer-inner {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 var(--page-pad);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -236,7 +232,6 @@ details[open] summary::after { content: '−'; }
 .formula-table td:nth-child(2) { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
 
 /* ── RESPONSIVE ── */
-/* Change --page-pad and everything adjusts automatically */
 @media (max-width: 720px) {
   :root { --page-pad: 16px; }
 
@@ -268,7 +263,10 @@ details[open] summary::after { content: '−'; }
 }
 
 @media (max-width: 500px) {
-  .header-nav a:not(:nth-child(-n+3)) { display: none; }
+  /* Prevent iOS Safari zoom on input focus — must be 16px+ */
+  input[type="number"],
+  input[type="text"],
+  select { font-size: 16px !important; }
 }
 
 @media (max-width: 400px) {
