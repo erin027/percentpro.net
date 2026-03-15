@@ -7,10 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="wrap footer-inner">
         <div class="footer-logo">Percent<span style="color:var(--accent)">Pro</span></div>
         <nav class="footer-links" aria-label="Footer navigation">
-          <a href="/">Home</a>
+          <a href="/">Percentage Calculator</a>
           <a href="/tip-calculator">Tip Calculator</a>
           <a href="/discount-calculator">Discount Calculator</a>
-          <a href="/privacy">Privacy</a>
+          <a href="/gpa-calculator">GPA Calculator</a>
+          <a href="/tax-calculator">Tax Calculator</a>
+          <a href="/privacy">Privacy Policy</a>
         </nav>
         <div class="footer-note">© ${new Date().getFullYear()} PercentPro. Free to use.</div>
       </div>
