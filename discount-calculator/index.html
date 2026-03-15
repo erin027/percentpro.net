@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4549289362352187" crossorigin="anonymous"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2H9R0Z1V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2H9R0Z1V');
+  </script>
+
+  <!-- PRIMARY SEO -->
+  <title>Discount Calculator — Calculate Sale Price Instantly | PercentPro</title>
+  <meta name="description" content="Free discount calculator — find the sale price after any percentage discount. Calculate how much you save and what you pay. Works for 10%, 20%, 50% off and any custom discount." />
+  <meta name="keywords" content="discount calculator, sale price calculator, percentage off calculator, how much is 20% off, savings calculator, price after discount" />
+  <link rel="canonical" href="https://percentpro.net/discount-calculator/" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Discount Calculator — Calculate Sale Price Instantly" />
+  <meta property="og:description" content="Free discount calculator. Find the final price after any percentage off, and see exactly how much you save." />
+  <meta property="og:url" content="https://percentpro.net/discount-calculator/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Discount Calculator",
+    "url": "https://percentpro.net/discount-calculator/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "A free online discount calculator. Enter the original price and discount percentage to find the sale price and amount saved.",
+    "featureList": [
+      "Calculate final price after a percentage discount",
+      "Calculate how much you save",
+      "Find the original price from a discounted price",
+      "Calculate what discount percentage was applied"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate a discount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate a discount, multiply the original price by the discount percentage divided by 100. Formula: Discount amount = Original price × (Discount% ÷ 100). Sale price = Original price − Discount amount. Example: 20% off $80 = $80 × 0.20 = $16 saved. Sale price = $80 − $16 = $64."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you find the original price before a discount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the sale price by (1 minus the discount rate). Formula: Original price = Sale price ÷ (1 − Discount%). Example: An item costs $64 after a 20% discount. Original price = $64 ÷ 0.80 = $80."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate the discount percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subtract the sale price from the original price, divide by the original price, then multiply by 100. Formula: Discount% = ((Original − Sale) ÷ Original) × 100. Example: Item originally $80, now $64. Discount% = ((80 − 64) ÷ 80) × 100 = 20%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate double discounts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Apply each discount sequentially, not additively. Example: 20% off then 10% off a $100 item. Step 1: $100 × 0.80 = $80. Step 2: $80 × 0.90 = $72. The total discount is 28%, not 30%."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- SHARED STYLES -->
+  <link rel="stylesheet" href="/styles/main.css" />
+
+  <style>
+    /* PAGE ACCENT — warm indigo for Discount Calculator */
+    :root {
+      --accent: #4a3fb5;
+      --accent-soft: #eeecfb;
+      --accent2: #1a6b5c;
+    }
+
+    .hero { padding: 28px 0 24px; }
+    .hero-sub { color: var(--muted); font-size: .88rem; }
+
+    .calc-section { padding: 28px 0 36px; }
+    .calc-card-box {
+      background: #fff;
+      border: 1.5px solid var(--rule);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin: 28px 0;
+    }
+    .calc-rows { display: flex; flex-direction: column; }
+    .calc-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 26px 36px;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .calc-row:last-child { border-bottom: none; }
+    .expr { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; flex: 0 1 auto; }
+    .expr-label { color: var(--ink); white-space: nowrap; font-size: .95rem; }
+    .currency-symbol { font-family: var(--mono); color: var(--muted); font-size: .9rem; }
+
+    input[type="number"] {
+      font-family: var(--mono);
+      font-size: 1rem;
+      width: 96px;
+      padding: 7px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .15s;
+      -moz-appearance: textfield;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    input[type="number"]:focus { border-color: var(--accent); }
+
+    /* Quick discount presets */
+    .discount-presets {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-left: 4px;
+    }
+    .discount-preset {
+      font-family: var(--mono);
+      font-size: .78rem;
+      padding: 4px 10px;
+      border-radius: 99px;
+      border: 1.5px solid var(--rule);
+      background: var(--cream);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .discount-preset:hover, .discount-preset.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .calc-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+    .result-field {
+      font-family: var(--mono);
+      font-size: 1rem;
+      width: 110px;
+      padding: 7px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      pointer-events: none;
+      user-select: all;
+    }
+    .btn-calc {
+      font-family: var(--sans);
+      font-size: .88rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn-calc:hover { opacity: .85; }
+    .btn-calc:active { opacity: 1; }
+
+    /* Section tabs */
+    .calc-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--rule);
+      background: var(--cream);
+    }
+    .calc-tab {
+      font-family: var(--sans);
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 2.5px solid transparent;
+      margin-bottom: -1px;
+      transition: all .15s;
+    }
+    .calc-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      background: #fff;
+    }
+    .calc-panel { display: none; }
+    .calc-panel.active { display: block; }
+
+    /* Results summary */
+    .results-summary {
+      margin: 0 36px 24px;
+      background: var(--accent-soft);
+      border: 1.5px solid #c8c4f0;
+      border-radius: 6px;
+      padding: 20px 24px;
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .results-summary.visible { display: grid; }
+    .summary-item { text-align: center; }
+    .summary-value { font-family: var(--mono); font-size: 1.4rem; font-weight: 600; color: var(--accent); display: block; }
+    .summary-label { font-size: .78rem; color: var(--muted); margin-top: 4px; display: block; }
+    .summary-value.savings { color: #2e6a4f; }
+
+    .related-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .related-link {
+      font-size: .85rem;
+      padding: 6px 14px;
+      border: 1.5px solid var(--rule);
+      border-radius: 99px;
+      color: var(--muted);
+      background: var(--cream);
+      transition: all .15s;
+    }
+    .related-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 720px) {
+      .hero { padding: 20px 0 16px; }
+      .calc-section { padding: 0 0 28px; }
+      .calc-card-box { margin: 16px 0; border-radius: 6px; }
+      .calc-row { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 16px; }
+      .expr { gap: 6px; width: 100%; }
+      input[type="number"] { width: 88px; font-size: .92rem; }
+      .calc-right { margin-left: 0; width: 100%; justify-content: flex-start; gap: 8px; }
+      .btn-calc { display: block; }
+      .result-field { flex: 1; min-width: 0; }
+      .results-summary { margin: 0 16px 20px; grid-template-columns: 1fr 1fr; }
+      .results-summary .summary-item:last-child { grid-column: span 2; }
+      .calc-tab { padding: 10px 14px; font-size: .8rem; }
+    }
+    @media (max-width: 400px) {
+      input[type="number"] { width: 76px; }
+      .results-summary { grid-template-columns: 1fr; }
+      .results-summary .summary-item:last-child { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER (shared) -->
+<script src="/components/header.js"></script>
+
+<!-- AD: Leaderboard -->
+<div class="wrap">
+  <div class="ad-slot ad-leaderboard" aria-label="Advertisement">
+    Advertisement · 728 × 90
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero wrap" aria-label="Page introduction">
+  <h1>Discount Calculator</h1>
+  <p class="hero-sub">Calculate the sale price after a discount, find the original price, or work out what percentage was taken off.</p>
+</section>
+
+<!-- CALCULATORS -->
+<section class="calc-section wrap" aria-label="Discount calculators">
+  <div class="calc-card-box">
+
+    <!-- Tabs -->
+    <div class="calc-tabs" role="tablist">
+      <button class="calc-tab active" role="tab" onclick="switchTab('sale-price')">Sale price</button>
+      <button class="calc-tab" role="tab" onclick="switchTab('original-price')">Original price</button>
+      <button class="calc-tab" role="tab" onclick="switchTab('discount-pct')">Discount %</button>
+    </div>
+
+    <!-- Panel 1: Sale price -->
+    <div class="calc-panel active" id="panel-sale-price">
+      <div class="calc-rows">
+        <div class="calc-row" role="group" aria-label="Original price">
+          <div class="expr">
+            <span class="expr-label">Original price</span>
+            <span class="currency-symbol">$</span>
+            <input type="number" id="orig-price" placeholder="80.00" step="0.01" min="0" aria-label="Original price" />
+          </div>
+        </div>
+        <div class="calc-row" role="group" aria-label="Discount percentage">
+          <div class="expr">
+            <span class="expr-label">Discount</span>
+            <input type="number" id="disc-pct" placeholder="20" step="1" min="0" max="100" aria-label="Discount percentage" />
+            <span class="currency-symbol">%</span>
+            <div class="discount-presets">
+              <button class="discount-preset" onclick="setDiscount(10)">10%</button>
+              <button class="discount-preset" onclick="setDiscount(15)">15%</button>
+              <button class="discount-preset" onclick="setDiscount(20)">20%</button>
+              <button class="discount-preset" onclick="setDiscount(25)">25%</button>
+              <button class="discount-preset" onclick="setDiscount(50)">50%</button>
+            </div>
+          </div>
+          <div class="calc-right">
+            <button class="btn-calc" onclick="calcSalePrice()">Calculate</button>
+          </div>
+        </div>
+      </div>
+      <div class="results-summary" id="summary-sale">
+        <div class="summary-item"><span class="summary-value savings" id="you-save">—</span><span class="summary-label">You save</span></div>
+        <div class="summary-item"><span class="summary-value" id="sale-price-result">—</span><span class="summary-label">Sale price</span></div>
+        <div class="summary-item"><span class="summary-value" id="sale-total">—</span><span class="summary-label">Original price</span></div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Original price -->
+    <div class="calc-panel" id="panel-original-price">
+      <div class="calc-rows">
+        <div class="calc-row" role="group" aria-label="Sale price">
+          <div class="expr">
+            <span class="expr-label">Sale price</span>
+            <span class="currency-symbol">$</span>
+            <input type="number" id="sale-price-input" placeholder="64.00" step="0.01" min="0" aria-label="Sale price" />
+          </div>
+        </div>
+        <div class="calc-row" role="group" aria-label="Discount percentage">
+          <div class="expr">
+            <span class="expr-label">Discount was</span>
+            <input type="number" id="disc-pct-2" placeholder="20" step="1" min="0" max="99" aria-label="Discount percentage" />
+            <span class="currency-symbol">% off</span>
+          </div>
+          <div class="calc-right">
+            <button class="btn-calc" onclick="calcOriginalPrice()">Calculate</button>
+          </div>
+        </div>
+      </div>
+      <div class="results-summary" id="summary-original">
+        <div class="summary-item"><span class="summary-value" id="original-price-result">—</span><span class="summary-label">Original price</span></div>
+        <div class="summary-item"><span class="summary-value savings" id="original-saved">—</span><span class="summary-label">You saved</span></div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Discount % -->
+    <div class="calc-panel" id="panel-discount-pct">
+      <div class="calc-rows">
+        <div class="calc-row" role="group" aria-label="Original price">
+          <div class="expr">
+            <span class="expr-label">Original price</span>
+            <span class="currency-symbol">$</span>
+            <input type="number" id="orig-price-3" placeholder="80.00" step="0.01" min="0" aria-label="Original price" />
+          </div>
+        </div>
+        <div class="calc-row" role="group" aria-label="Sale price">
+          <div class="expr">
+            <span class="expr-label">Sale price</span>
+            <span class="currency-symbol">$</span>
+            <input type="number" id="sale-price-3" placeholder="64.00" step="0.01" min="0" aria-label="Sale price" />
+          </div>
+          <div class="calc-right">
+            <button class="btn-calc" onclick="calcDiscountPct()">Calculate</button>
+          </div>
+        </div>
+      </div>
+      <div class="results-summary" id="summary-pct">
+        <div class="summary-item"><span class="summary-value" id="disc-pct-result">—</span><span class="summary-label">Discount %</span></div>
+        <div class="summary-item"><span class="summary-value savings" id="disc-saved">—</span><span class="summary-label">Amount saved</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- USE CASES -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="uses-heading">
+  <h2 class="section-heading" id="uses-heading">When to use a discount calculator</h2>
+  <p>Discounts appear everywhere — from seasonal sales and coupons to wholesale pricing and invoice negotiations. Here are the most common scenarios.</p>
+
+  <div class="clearfix">
+    <div class="ad-slot ad-rectangle" aria-label="Advertisement">Advertisement · 336 × 280</div>
+    <div class="use-cases">
+      <div class="use-case-card"><div class="use-case-icon">🛍️</div><div class="use-case-title">Retail shopping</div><p class="use-case-desc">Find the final price on sale items before you get to the register — avoid surprises at checkout.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🏷️</div><div class="use-case-title">Coupon codes</div><p class="use-case-desc">Quickly calculate savings from promo codes and compare deals across different stores.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">💼</div><div class="use-case-title">Business pricing</div><p class="use-case-desc">Calculate wholesale discounts, bulk pricing, and trade rates for B2B transactions.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🏠</div><div class="use-case-title">Real estate & cars</div><p class="use-case-desc">Work out the final price after negotiating a percentage off the asking price.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">📦</div><div class="use-case-title">Subscription deals</div><p class="use-case-desc">Compare annual vs monthly plans and calculate savings from introductory offers.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🎓</div><div class="use-case-title">Student discounts</div><p class="use-case-desc">Calculate the actual price on software, travel, and products with student pricing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AD: In-content banner -->
+<hr class="section-divider" />
+<div class="wrap" style="padding-top:32px;padding-bottom:32px;">
+  <div class="ad-slot ad-banner" aria-label="Advertisement">Advertisement · 728 × 90</div>
+</div>
+
+<!-- FAQ -->
+<section class="content-section wrap" aria-labelledby="faq-heading">
+  <h2 class="section-heading" id="faq-heading">Frequently asked questions</h2>
+  <p>Everything you need to know about calculating discounts, sale prices, and savings.</p>
+  <div class="faq-list">
+    <details>
+      <summary>How do you calculate a discount?</summary>
+      <div class="faq-body">
+        <p>Multiply the original price by the discount percentage divided by 100: <code>Discount = Price × (Discount% ÷ 100)</code>. Then subtract from the original price to get the sale price.</p>
+        <p><strong>Example:</strong> 20% off $80: <code>$80 × 0.20 = $16 off</code>. Sale price = <code>$80 − $16 = $64</code>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How do you find the original price before a discount?</summary>
+      <div class="faq-body">
+        <p>Divide the sale price by (1 minus the discount rate): <code>Original = Sale price ÷ (1 − Discount%/100)</code>.</p>
+        <p><strong>Example:</strong> Item costs $64 after 20% off. <code>$64 ÷ 0.80 = $80 original price</code>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How do you calculate the discount percentage?</summary>
+      <div class="faq-body">
+        <p>Subtract the sale price from the original, divide by the original, multiply by 100: <code>Discount% = ((Original − Sale) ÷ Original) × 100</code>.</p>
+        <p><strong>Example:</strong> $80 → $64. <code>((80 − 64) ÷ 80) × 100 = 20% off</code>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How do stacked or double discounts work?</summary>
+      <div class="faq-body">
+        <p>Stacked discounts are applied sequentially, not added together. A 20% discount followed by a 10% discount is not 30% off.</p>
+        <p><strong>Example:</strong> $100 item with 20% off then 10% off. Step 1: <code>$100 × 0.80 = $80</code>. Step 2: <code>$80 × 0.90 = $72</code>. Total saving = $28 (28%), not 30%.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is the difference between a discount and a rebate?</summary>
+      <div class="faq-body">
+        <p>A <strong>discount</strong> reduces the price at the point of sale — you pay less upfront. A <strong>rebate</strong> is a partial refund after purchase — you pay full price and receive money back later, often by mail or as a statement credit. Rebates are common in electronics and automotive purchases.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="about-heading">
+  <h2 class="section-heading" id="about-heading">About this calculator</h2>
+  <p>This discount calculator has three modes: find the sale price from an original price and discount percentage, reverse-calculate the original price from a sale price, or determine what discount percentage was applied. All calculations happen instantly in your browser.</p>
+  <nav class="related-links" aria-label="Related calculators">
+    <a href="/" class="related-link">Percentage Calculator</a>
+    <a href="/tip-calculator" class="related-link">Tip Calculator</a>
+    <a href="/gpa-calculator" class="related-link">GPA Calculator</a>
+    <a href="/tax-calculator" class="related-link">Tax Calculator</a>
+  </nav>
+</section>
+
+</main>
+
+<!-- FOOTER (shared) -->
+<script src="/components/footer.js"></script>
+
+<!-- CALCULATOR LOGIC -->
+<script>
+  function fmtCurrency(n) { return '$' + parseFloat(n).toFixed(2); }
+  function fmtPct(n) { return parseFloat(n.toPrecision(6)).toString() + '%'; }
+
+  function switchTab(tab) {
+    document.querySelectorAll('.calc-tab').forEach((t, i) => {
+      const tabs = ['sale-price','original-price','discount-pct'];
+      t.classList.toggle('active', tabs[i] === tab);
+    });
+    document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tab).classList.add('active');
+  }
+
+  function setDiscount(pct) {
+    document.getElementById('disc-pct').value = pct;
+    document.querySelectorAll('.discount-preset').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === pct + '%');
+    });
+    calcSalePrice();
+  }
+
+  function calcSalePrice() {
+    const price = parseFloat(document.getElementById('orig-price').value);
+    const pct   = parseFloat(document.getElementById('disc-pct').value);
+    const s     = document.getElementById('summary-sale');
+    if (isNaN(price) || isNaN(pct)) { s.classList.remove('visible'); return; }
+    const saved = price * (pct / 100);
+    const sale  = price - saved;
+    document.getElementById('you-save').textContent        = fmtCurrency(saved);
+    document.getElementById('sale-price-result').textContent = fmtCurrency(sale);
+    document.getElementById('sale-total').textContent      = fmtCurrency(price);
+    s.classList.add('visible');
+  }
+
+  function calcOriginalPrice() {
+    const sale = parseFloat(document.getElementById('sale-price-input').value);
+    const pct  = parseFloat(document.getElementById('disc-pct-2').value);
+    const s    = document.getElementById('summary-original');
+    if (isNaN(sale) || isNaN(pct) || pct >= 100) { s.classList.remove('visible'); return; }
+    const orig  = sale / (1 - pct / 100);
+    const saved = orig - sale;
+    document.getElementById('original-price-result').textContent = fmtCurrency(orig);
+    document.getElementById('original-saved').textContent        = fmtCurrency(saved);
+    s.classList.add('visible');
+  }
+
+  function calcDiscountPct() {
+    const orig = parseFloat(document.getElementById('orig-price-3').value);
+    const sale = parseFloat(document.getElementById('sale-price-3').value);
+    const s    = document.getElementById('summary-pct');
+    if (isNaN(orig) || isNaN(sale) || orig === 0) { s.classList.remove('visible'); return; }
+    const pct   = ((orig - sale) / orig) * 100;
+    const saved = orig - sale;
+    document.getElementById('disc-pct-result').textContent = fmtPct(pct);
+    document.getElementById('disc-saved').textContent      = fmtCurrency(saved);
+    s.classList.add('visible');
+  }
+
+  // Live calc
+  ['orig-price','disc-pct'].forEach(id => document.getElementById(id).addEventListener('input', calcSalePrice));
+  ['sale-price-input','disc-pct-2'].forEach(id => document.getElementById(id).addEventListener('input', calcOriginalPrice));
+  ['orig-price-3','sale-price-3'].forEach(id => document.getElementById(id).addEventListener('input', calcDiscountPct));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.activeElement.blur();
+  });
+</script>
+
+</body>
+</html>
