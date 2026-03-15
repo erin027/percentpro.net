@@ -1,5 +1,4 @@
 /* ── PercentPro Shared Styles ── */
-/* Edit this file to update styles across ALL pages instantly */
 
 /* ── TOKENS ── */
 :root {
@@ -21,23 +20,29 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: var(--sans);
   background: var(--paper);
   color: var(--ink);
   line-height: 1.7;
   font-size: 16px;
-  overflow-x: hidden;
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ── LAYOUT ── */
+/* ── LAYOUT ──
+   One variable controls all horizontal padding sitewide.
+   Change --page-pad to adjust spacing everywhere at once.
+*/
+:root {
+  --page-pad: 24px;
+}
+
 .wrap {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-pad);
 }
 
 /* ── HEADER ── */
@@ -51,7 +56,7 @@ header {
   justify-content: space-between;
   max-width: 860px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 14px var(--page-pad);
 }
 .logo {
   font-family: var(--serif);
@@ -93,7 +98,7 @@ footer {
 .footer-inner {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-pad);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -225,17 +230,9 @@ details[open] summary::after { content: '−'; }
 .formula-table td:nth-child(2) { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
 
 /* ── RESPONSIVE ── */
+/* Change --page-pad and everything adjusts automatically */
 @media (max-width: 720px) {
-  /* Bulletproof side padding — applied at body level so nothing can miss it */
-  body { padding: 0 16px; }
-
-  /* Reset padding on elements that center themselves so there's no double-padding */
-  .wrap,
-  .header-inner,
-  .footer-inner { padding-left: 0; padding-right: 0; }
-
-  /* header spans full width so needs negative margin to break out of body padding */
-  header { margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+  :root { --page-pad: 16px; }
 
   h1 { font-size: 1.3rem; }
   .content-section { padding: 36px 0; }
@@ -269,8 +266,7 @@ details[open] summary::after { content: '−'; }
 }
 
 @media (max-width: 400px) {
-  body { padding: 0 12px; }
-  header { margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
+  :root { --page-pad: 12px; }
 
   .use-cases { grid-template-columns: 1fr; }
   h1 { font-size: 1.15rem; }
