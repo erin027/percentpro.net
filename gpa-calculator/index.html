@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4549289362352187" crossorigin="anonymous"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN2H9R0Z1V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VN2H9R0Z1V');
+  </script>
+
+  <!-- PRIMARY SEO -->
+  <title>GPA Calculator — Calculate Your Grade Point Average | PercentPro</title>
+  <meta name="description" content="Free GPA calculator — calculate your semester GPA or cumulative GPA instantly. Add courses, credits, and letter grades. Supports 4.0 scale and weighted grades." />
+  <meta name="keywords" content="GPA calculator, grade point average calculator, cumulative GPA calculator, semester GPA calculator, college GPA calculator, how to calculate GPA" />
+  <link rel="canonical" href="https://percentpro.net/gpa-calculator/" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GPA Calculator — Calculate Your Grade Point Average" />
+  <meta property="og:description" content="Free GPA calculator. Add your courses and grades to calculate your semester or cumulative GPA instantly." />
+  <meta property="og:url" content="https://percentpro.net/gpa-calculator/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GPA Calculator",
+    "url": "https://percentpro.net/gpa-calculator/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "A free online GPA calculator. Add courses, credit hours, and letter grades to calculate semester or cumulative GPA on a 4.0 scale.",
+    "featureList": [
+      "Calculate semester GPA from letter grades",
+      "Calculate cumulative GPA across multiple semesters",
+      "Supports weighted credit hours",
+      "4.0 GPA scale"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is GPA calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GPA is calculated by multiplying each course's grade points by its credit hours, summing all results, then dividing by total credit hours. Formula: GPA = Sum of (Grade Points × Credit Hours) ÷ Total Credit Hours. On a 4.0 scale: A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good GPA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On a 4.0 scale, a GPA of 3.5 or higher is considered excellent. 3.0 to 3.4 is good, 2.5 to 2.9 is average, and below 2.0 may put a student on academic probation. For graduate school admission, most programs prefer a 3.0 minimum, with competitive programs expecting 3.5 or higher."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between semester GPA and cumulative GPA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Semester GPA is calculated only from courses taken in a single semester. Cumulative GPA includes all courses taken across all semesters. Cumulative GPA is the overall grade average shown on a transcript."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate cumulative GPA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate cumulative GPA, add the quality points (grade points × credits) from all semesters and divide by the total credit hours attempted. Example: Semester 1: 30 quality points, 10 credits. Semester 2: 36 quality points, 12 credits. Cumulative GPA = (30 + 36) ÷ (10 + 12) = 66 ÷ 22 = 3.0."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- SHARED STYLES -->
+  <link rel="stylesheet" href="/styles/main.css" />
+
+  <style>
+    /* PAGE ACCENT — amber/gold for GPA Calculator */
+    :root {
+      --accent: #b45309;
+      --accent-soft: #fef3e2;
+      --accent2: #4a3fb5;
+    }
+
+    .hero { padding: 28px 0 24px; }
+    .hero-sub { color: var(--muted); font-size: .88rem; }
+    .calc-section { padding: 28px 0 36px; }
+
+    .calc-card-box {
+      background: #fff;
+      border: 1.5px solid var(--rule);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin: 28px 0;
+    }
+
+    /* Tabs */
+    .calc-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--rule);
+      background: var(--cream);
+    }
+    .calc-tab {
+      font-family: var(--sans);
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 2.5px solid transparent;
+      margin-bottom: -1px;
+      transition: all .15s;
+    }
+    .calc-tab.active { color: var(--accent); border-bottom-color: var(--accent); background: #fff; }
+    .calc-panel { display: none; padding: 24px 36px; }
+    .calc-panel.active { display: block; }
+
+    /* Course table */
+    .course-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+    }
+    .course-table th {
+      text-align: left;
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 8px 10px;
+      border-bottom: 1.5px solid var(--rule);
+    }
+    .course-table td { padding: 8px; vertical-align: middle; }
+    .course-table tr:not(:last-child) td { border-bottom: 1px solid var(--rule); }
+
+    .course-name-input {
+      font-family: var(--sans);
+      font-size: .92rem;
+      width: 100%;
+      padding: 6px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+    .course-name-input:focus { border-color: var(--accent); }
+
+    .credits-input {
+      font-family: var(--mono);
+      font-size: .92rem;
+      width: 60px;
+      padding: 6px 8px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      text-align: center;
+      -moz-appearance: textfield;
+    }
+    .credits-input::-webkit-outer-spin-button,
+    .credits-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .credits-input:focus { border-color: var(--accent); }
+
+    .grade-select {
+      font-family: var(--mono);
+      font-size: .92rem;
+      padding: 6px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      cursor: pointer;
+      width: 80px;
+    }
+    .grade-select:focus { border-color: var(--accent); }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 1.1rem;
+      padding: 4px 8px;
+      border-radius: var(--radius);
+      transition: color .15s;
+    }
+    .remove-btn:hover { color: #c8401a; }
+
+    .table-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-add-course {
+      font-family: var(--sans);
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--rule);
+      background: var(--cream);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-add-course:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn-calc {
+      font-family: var(--sans);
+      font-size: .88rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      transition: opacity .15s;
+    }
+    .btn-calc:hover { opacity: .85; }
+
+    /* GPA result display */
+    .gpa-result {
+      display: none;
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: var(--accent-soft);
+      border: 1.5px solid #f5d9a8;
+      border-radius: 6px;
+    }
+    .gpa-result.visible { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .gpa-big {
+      font-family: var(--mono);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .gpa-meta { display: flex; flex-direction: column; gap: 6px; }
+    .gpa-meta-item { font-size: .88rem; color: var(--muted); }
+    .gpa-meta-item strong { color: var(--ink); }
+
+    /* Cumulative inputs */
+    .cumulative-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .cumulative-row:last-of-type { border-bottom: none; }
+    .cumulative-label { font-size: .95rem; color: var(--ink); min-width: 180px; }
+    input[type="number"].inline-input {
+      font-family: var(--mono);
+      font-size: 1rem;
+      width: 96px;
+      padding: 7px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      -moz-appearance: textfield;
+    }
+    input[type="number"].inline-input::-webkit-outer-spin-button,
+    input[type="number"].inline-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    input[type="number"].inline-input:focus { border-color: var(--accent); }
+
+    .related-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .related-link {
+      font-size: .85rem;
+      padding: 6px 14px;
+      border: 1.5px solid var(--rule);
+      border-radius: 99px;
+      color: var(--muted);
+      background: var(--cream);
+      transition: all .15s;
+    }
+    .related-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 720px) {
+      .hero { padding: 20px 0 16px; }
+      .calc-section { padding: 0 0 28px; }
+      .calc-card-box { margin: 16px 0; }
+      .calc-panel { padding: 18px 16px; }
+      .calc-tab { padding: 10px 14px; font-size: .8rem; }
+      .course-table th:first-child, .course-table td:first-child { display: none; }
+      .gpa-big { font-size: 2.4rem; }
+      .cumulative-label { min-width: 140px; font-size: .88rem; }
+      input[type="number"].inline-input { width: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER (shared) -->
+<script src="/components/header.js"></script>
+
+<!-- AD: Leaderboard -->
+<div class="wrap">
+  <div class="ad-slot ad-leaderboard" aria-label="Advertisement">
+    Advertisement · 728 × 90
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero wrap" aria-label="Page introduction">
+  <h1>GPA Calculator</h1>
+  <p class="hero-sub">Calculate your semester GPA or cumulative GPA — add your courses, credit hours, and letter grades.</p>
+</section>
+
+<!-- CALCULATORS -->
+<section class="calc-section wrap" aria-label="GPA calculator">
+  <div class="calc-card-box">
+
+    <div class="calc-tabs" role="tablist">
+      <button class="calc-tab active" onclick="switchTab('semester')">Semester GPA</button>
+      <button class="calc-tab" onclick="switchTab('cumulative')">Cumulative GPA</button>
+    </div>
+
+    <!-- Semester GPA -->
+    <div class="calc-panel active" id="panel-semester">
+      <table class="course-table" aria-label="Course grades">
+        <thead>
+          <tr>
+            <th>Course name</th>
+            <th>Credits</th>
+            <th>Grade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="course-list">
+          <!-- Rows injected by JS -->
+        </tbody>
+      </table>
+      <div class="table-actions">
+        <button class="btn-add-course" onclick="addCourse()">+ Add course</button>
+        <button class="btn-calc" onclick="calcGPA()">Calculate GPA</button>
+      </div>
+      <div class="gpa-result" id="gpa-result">
+        <div class="gpa-big" id="gpa-value">—</div>
+        <div class="gpa-meta">
+          <div class="gpa-meta-item">Semester GPA: <strong id="gpa-display">—</strong></div>
+          <div class="gpa-meta-item">Total credits: <strong id="total-credits">—</strong></div>
+          <div class="gpa-meta-item">Quality points: <strong id="quality-points">—</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cumulative GPA -->
+    <div class="calc-panel" id="panel-cumulative">
+      <div class="cumulative-row">
+        <span class="cumulative-label">Current cumulative GPA</span>
+        <input type="number" class="inline-input" id="current-gpa" placeholder="3.20" step="0.01" min="0" max="4" aria-label="Current GPA" />
+      </div>
+      <div class="cumulative-row">
+        <span class="cumulative-label">Credits completed</span>
+        <input type="number" class="inline-input" id="current-credits" placeholder="60" step="1" min="0" aria-label="Credits completed" />
+      </div>
+      <div class="cumulative-row">
+        <span class="cumulative-label">New semester GPA</span>
+        <input type="number" class="inline-input" id="new-gpa" placeholder="3.50" step="0.01" min="0" max="4" aria-label="New semester GPA" />
+      </div>
+      <div class="cumulative-row">
+        <span class="cumulative-label">New semester credits</span>
+        <input type="number" class="inline-input" id="new-credits" placeholder="15" step="1" min="0" aria-label="New semester credits" />
+      </div>
+      <div class="table-actions" style="border-top: 1px solid var(--rule); padding-top: 16px; margin-top: 8px;">
+        <div></div>
+        <button class="btn-calc" onclick="calcCumulative()">Calculate</button>
+      </div>
+      <div class="gpa-result" id="cumulative-result">
+        <div class="gpa-big" id="cumulative-value">—</div>
+        <div class="gpa-meta">
+          <div class="gpa-meta-item">New cumulative GPA: <strong id="cumulative-display">—</strong></div>
+          <div class="gpa-meta-item">Total credits: <strong id="cumulative-total-credits">—</strong></div>
+          <div class="gpa-meta-item">Total quality points: <strong id="cumulative-quality-points">—</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- USE CASES -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="uses-heading">
+  <h2 class="section-heading" id="uses-heading">Why GPA matters</h2>
+  <p>Your GPA affects more than just academic standing. Here are the most common situations where your grade point average plays a direct role.</p>
+  <div class="clearfix">
+    <div class="ad-slot ad-rectangle" aria-label="Advertisement">Advertisement · 336 × 280</div>
+    <div class="use-cases">
+      <div class="use-case-card"><div class="use-case-icon">🎓</div><div class="use-case-title">Graduate school</div><p class="use-case-desc">Most graduate programs require a minimum 3.0 GPA. Top programs expect 3.5 or higher.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">💼</div><div class="use-case-title">Job applications</div><p class="use-case-desc">Many employers, especially for entry-level roles, screen for a minimum 3.0 GPA.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🏆</div><div class="use-case-title">Latin honors</div><p class="use-case-desc">Cum Laude (3.5+), Magna Cum Laude (3.7+), and Summa Cum Laude (3.9+) require specific GPAs.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">💰</div><div class="use-case-title">Scholarships</div><p class="use-case-desc">Most merit scholarships require maintaining a minimum GPA, often 3.0 or higher.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🏫</div><div class="use-case-title">Academic standing</div><p class="use-case-desc">Students with a GPA below 2.0 may face academic probation or suspension.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">📋</div><div class="use-case-title">Transfer applications</div><p class="use-case-desc">Transferring to a four-year university typically requires a minimum 2.5–3.0 GPA.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AD: In-content banner -->
+<hr class="section-divider" />
+<div class="wrap" style="padding-top:32px;padding-bottom:32px;">
+  <div class="ad-slot ad-banner" aria-label="Advertisement">Advertisement · 728 × 90</div>
+</div>
+
+<!-- GPA Scale Reference -->
+<section class="content-section wrap" aria-labelledby="scale-heading">
+  <h2 class="section-heading" id="scale-heading">4.0 GPA scale reference</h2>
+  <p>Most US colleges and universities use the 4.0 GPA scale. Here is how letter grades convert to grade points.</p>
+  <table class="formula-table" role="table" aria-label="GPA scale">
+    <thead>
+      <tr>
+        <th scope="col">Letter grade</th>
+        <th scope="col">Grade points</th>
+        <th scope="col">Percentage equivalent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>A+</strong></td><td>4.0</td><td>97–100%</td></tr>
+      <tr><td><strong>A</strong></td><td>4.0</td><td>93–96%</td></tr>
+      <tr><td><strong>A−</strong></td><td>3.7</td><td>90–92%</td></tr>
+      <tr><td><strong>B+</strong></td><td>3.3</td><td>87–89%</td></tr>
+      <tr><td><strong>B</strong></td><td>3.0</td><td>83–86%</td></tr>
+      <tr><td><strong>B−</strong></td><td>2.7</td><td>80–82%</td></tr>
+      <tr><td><strong>C+</strong></td><td>2.3</td><td>77–79%</td></tr>
+      <tr><td><strong>C</strong></td><td>2.0</td><td>73–76%</td></tr>
+      <tr><td><strong>C−</strong></td><td>1.7</td><td>70–72%</td></tr>
+      <tr><td><strong>D+</strong></td><td>1.3</td><td>67–69%</td></tr>
+      <tr><td><strong>D</strong></td><td>1.0</td><td>63–66%</td></tr>
+      <tr><td><strong>D−</strong></td><td>0.7</td><td>60–62%</td></tr>
+      <tr><td><strong>F</strong></td><td>0.0</td><td>Below 60%</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FAQ -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="faq-heading">
+  <h2 class="section-heading" id="faq-heading">Frequently asked questions</h2>
+  <div class="faq-list">
+    <details>
+      <summary>How is GPA calculated?</summary>
+      <div class="faq-body">
+        <p>GPA is calculated by multiplying each course's grade points by its credit hours to get quality points, summing all quality points, then dividing by total credit hours.</p>
+        <p><strong>Formula:</strong> <code>GPA = Total Quality Points ÷ Total Credit Hours</code></p>
+        <p><strong>Example:</strong> Math (4 credits, A = 4.0): 16 quality points. English (3 credits, B = 3.0): 9 quality points. Total = 25 ÷ 7 = <strong>3.57 GPA</strong>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is a good GPA?</summary>
+      <div class="faq-body">
+        <p>On a 4.0 scale: <strong>3.5–4.0</strong> is excellent (Dean's List territory), <strong>3.0–3.4</strong> is good, <strong>2.5–2.9</strong> is average, and <strong>below 2.0</strong> may trigger academic probation. For graduate school, most programs want at least 3.0, with competitive programs expecting 3.5+.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is the difference between semester GPA and cumulative GPA?</summary>
+      <div class="faq-body">
+        <p><strong>Semester GPA</strong> covers only courses from a single term — it resets each semester. <strong>Cumulative GPA</strong> is the weighted average of all courses taken across every semester. Your transcript shows both, but cumulative GPA is what employers and grad schools typically reference.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How do you raise your GPA?</summary>
+      <div class="faq-body">
+        <p>Because GPA is weighted by credit hours, taking more high-credit courses and earning strong grades has the biggest impact. Retaking courses where you received a low grade (if your school allows grade replacement) is also effective. A single semester of all A's has less impact on a high credit-hour cumulative GPA than on a low one — the more credits you've completed, the harder it is to move the needle.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Does AP or IB coursework affect college GPA?</summary>
+      <div class="faq-body">
+        <p>High school AP and IB grades do not affect your college GPA. College GPA starts fresh when you enroll. However, AP/IB exam scores may grant college credit, which can affect your total credit hours but typically not your GPA unless the credits are graded.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="about-heading">
+  <h2 class="section-heading" id="about-heading">About this calculator</h2>
+  <p>This GPA calculator uses the standard 4.0 scale used by most US colleges and universities. Add as many courses as you need, adjust credits, and select your letter grade. The cumulative GPA tab lets you combine your existing GPA with a new semester's results.</p>
+  <nav class="related-links" aria-label="Related calculators">
+    <a href="/" class="related-link">Percentage Calculator</a>
+    <a href="/tip-calculator" class="related-link">Tip Calculator</a>
+    <a href="/discount-calculator" class="related-link">Discount Calculator</a>
+    <a href="/tax-calculator" class="related-link">Tax Calculator</a>
+  </nav>
+</section>
+
+</main>
+
+<!-- FOOTER (shared) -->
+<script src="/components/footer.js"></script>
+
+<!-- CALCULATOR LOGIC -->
+<script>
+  const GRADE_POINTS = {
+    'A+': 4.0, 'A': 4.0, 'A-': 3.7,
+    'B+': 3.3, 'B': 3.0, 'B-': 2.7,
+    'C+': 2.3, 'C': 2.0, 'C-': 1.7,
+    'D+': 1.3, 'D': 1.0, 'D-': 0.7,
+    'F': 0.0
+  };
+
+  function gradeOptions() {
+    return Object.keys(GRADE_POINTS).map(g =>
+      `<option value="${g}">${g}</option>`
+    ).join('');
+  }
+
+  let courseCount = 0;
+
+  function addCourse(name = '', credits = 3, grade = 'A') {
+    courseCount++;
+    const id = courseCount;
+    const row = document.createElement('tr');
+    row.id = `course-row-${id}`;
+    row.innerHTML = `
+      <td><input type="text" class="course-name-input" placeholder="Course name (optional)" value="${name}" /></td>
+      <td><input type="number" class="credits-input" value="${credits}" min="0.5" max="12" step="0.5" aria-label="Credits" /></td>
+      <td>
+        <select class="grade-select" aria-label="Grade">
+          ${Object.keys(GRADE_POINTS).map(g =>
+            `<option value="${g}" ${g === grade ? 'selected' : ''}>${g}</option>`
+          ).join('')}
+        </select>
+      </td>
+      <td><button class="remove-btn" onclick="removeCourse(${id})" aria-label="Remove course">×</button></td>
+    `;
+    document.getElementById('course-list').appendChild(row);
+    // live calc
+    row.querySelectorAll('input, select').forEach(el => el.addEventListener('change', calcGPA));
+    row.querySelectorAll('input').forEach(el => el.addEventListener('input', calcGPA));
+  }
+
+  function removeCourse(id) {
+    const row = document.getElementById(`course-row-${id}`);
+    if (row) row.remove();
+    calcGPA();
+  }
+
+  function calcGPA() {
+    const rows = document.querySelectorAll('#course-list tr');
+    let totalCredits = 0;
+    let totalQuality = 0;
+
+    rows.forEach(row => {
+      const credits = parseFloat(row.querySelector('.credits-input').value) || 0;
+      const grade   = row.querySelector('.grade-select').value;
+      const points  = GRADE_POINTS[grade] ?? 0;
+      totalCredits += credits;
+      totalQuality += credits * points;
+    });
+
+    const result = document.getElementById('gpa-result');
+    if (totalCredits === 0) { result.classList.remove('visible'); return; }
+
+    const gpa = totalQuality / totalCredits;
+    document.getElementById('gpa-value').textContent    = gpa.toFixed(2);
+    document.getElementById('gpa-display').textContent  = gpa.toFixed(2);
+    document.getElementById('total-credits').textContent = totalCredits.toFixed(1);
+    document.getElementById('quality-points').textContent = totalQuality.toFixed(1);
+    result.classList.add('visible');
+  }
+
+  function calcCumulative() {
+    const curGPA     = parseFloat(document.getElementById('current-gpa').value);
+    const curCredits = parseFloat(document.getElementById('current-credits').value);
+    const newGPA     = parseFloat(document.getElementById('new-gpa').value);
+    const newCredits = parseFloat(document.getElementById('new-credits').value);
+
+    const result = document.getElementById('cumulative-result');
+    if ([curGPA, curCredits, newGPA, newCredits].some(isNaN)) {
+      result.classList.remove('visible'); return;
+    }
+
+    const curQuality  = curGPA * curCredits;
+    const newQuality  = newGPA * newCredits;
+    const totalCreds  = curCredits + newCredits;
+    const totalQual   = curQuality + newQuality;
+    const cumulative  = totalQual / totalCreds;
+
+    document.getElementById('cumulative-value').textContent         = cumulative.toFixed(2);
+    document.getElementById('cumulative-display').textContent       = cumulative.toFixed(2);
+    document.getElementById('cumulative-total-credits').textContent = totalCreds.toFixed(1);
+    document.getElementById('cumulative-quality-points').textContent = totalQual.toFixed(1);
+    result.classList.add('visible');
+  }
+
+  function switchTab(tab) {
+    document.querySelectorAll('.calc-tab').forEach((t, i) => {
+      t.classList.toggle('active', ['semester','cumulative'][i] === tab);
+    });
+    document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tab).classList.add('active');
+  }
+
+  // Live calc for cumulative
+  ['current-gpa','current-credits','new-gpa','new-credits'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcCumulative);
+  });
+
+  // Init with 4 default courses
+  addCourse('', 3, 'A');
+  addCourse('', 3, 'B+');
+  addCourse('', 3, 'A-');
+  addCourse('', 3, 'B');
+  calcGPA();
+</script>
+
+</body>
+</html>
