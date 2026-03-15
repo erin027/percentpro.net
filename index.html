@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── PRIMARY SEO ── -->
+  <title>Percentage Calculator — Fast, Free & Accurate | PercentPro</title>
+  <meta name="description" content="Calculate percentages instantly with 3 free tools: find what % of a number is, find what percent one number is of another, and calculate % increase or decrease. No signup needed." />
+  <meta name="keywords" content="percentage calculator, percent of a number, percentage increase calculator, percentage decrease calculator, how to calculate percentage, percent change calculator" />
+  <link rel="canonical" href="https://percentpro.io/" />
+
+  <!-- ── OPEN GRAPH / SOCIAL ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Percentage Calculator — Fast, Free & Accurate" />
+  <meta property="og:description" content="3 free percentage calculators in one page. Find % of a number, reverse-calculate a percentage, or compute % change in seconds." />
+  <meta property="og:url" content="https://percentpro.io/" />
+  <meta property="og:image" content="https://percentpro.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ── STRUCTURED DATA (JSON-LD) ── -->
+  <!-- 1. WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Percentage Calculator",
+    "url": "https://percentpro.io/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "A free online percentage calculator with three modes: percentage of a number, reverse percentage lookup, and percentage change between two values.",
+    "featureList": [
+      "Calculate what percentage of a number equals",
+      "Find what percent one number is of another",
+      "Compute percentage increase or decrease between two values"
+    ]
+  }
+  </script>
+  <!-- 2. FAQPage for LLMO / featured snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A percentage is a number expressed as a fraction of 100, denoted by the symbol %. For example, 25% means 25 out of every 100. Percentages are used to compare proportions, measure change, express probabilities, and communicate rates such as interest or tax."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate the percentage of a number?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To find X% of a number N, multiply N by X and divide by 100. Formula: Result = (X ÷ 100) × N. Example: 15% of 200 = (15 ÷ 100) × 200 = 30."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you find what percentage one number is of another?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the part by the whole, then multiply by 100. Formula: Percentage = (Part ÷ Whole) × 100. Example: 30 is what percent of 200? (30 ÷ 200) × 100 = 15%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate percentage increase or decrease?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subtract the original value from the new value, divide the result by the original value, then multiply by 100. Formula: % Change = ((New − Old) ÷ Old) × 100. A positive result is an increase; negative is a decrease."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between percentage and percentile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A percentage is a ratio out of 100 that describes a proportion or amount. A percentile is a ranking that shows what percentage of a dataset falls below a given value. For example, scoring in the 90th percentile means you scored higher than 90% of test takers."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- 3. HowTo for voice / AI answer engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate a Percentage",
+    "description": "Step-by-step guide to calculating a percentage of a number.",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Identify the whole", "text": "Determine the total value (the 'whole') you are taking a percentage of." },
+      { "@type": "HowToStep", "position": 2, "name": "Identify the percentage rate", "text": "Determine the percentage rate (e.g., 20%)." },
+      { "@type": "HowToStep", "position": 3, "name": "Divide the rate by 100", "text": "Convert the percentage to a decimal: 20% ÷ 100 = 0.20." },
+      { "@type": "HowToStep", "position": 4, "name": "Multiply by the whole", "text": "Multiply the decimal by the whole number: 0.20 × 150 = 30." }
+    ]
+  }
+  </script>
+
+  <!-- ── FONTS ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --ink: #0f0e0d;
+      --paper: #faf8f3;
+      --cream: #f3efe4;
+      --rule: #e0dcd2;
+      --accent: #c8401a;
+      --accent-soft: #f9ede8;
+      --accent2: #2e6a4f;
+      --muted: #7a756c;
+      --mono: 'DM Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+      --radius: 4px;
+      --shadow: 0 2px 12px rgba(15,14,13,.08);
+      --shadow-lg: 0 8px 32px rgba(15,14,13,.12);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1.5px solid var(--rule);
+      padding: 14px 0;
+      background: var(--paper);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--ink);
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--accent); }
+    .tagline-badge {
+      font-family: var(--mono);
+      font-size: .68rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 99px;
+      letter-spacing: .04em;
+    }
+
+    /* ── COMPACT HERO ── */
+    .hero {
+      padding: 28px 0 24px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .hero-sub {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* ── CALCULATOR SECTION ── */
+    .calc-section { padding: 28px 0 36px; }
+
+    .calc-card-box {
+      background: #fff;
+      border: 1.5px solid var(--rule);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin: 28px 0;
+    }
+
+    .calc-rows { display: flex; flex-direction: column; }
+
+    .calc-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 26px 36px;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .calc-row:last-child { border-bottom: none; }
+
+    /* Left side: question text + inputs */
+    .expr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      flex: 0 1 auto;
+    }
+    .expr-label { color: var(--ink); white-space: nowrap; font-size: .95rem; }
+    .pct-symbol { font-family: var(--mono); color: var(--muted); font-size: .9rem; }
+
+    input[type="number"] {
+      font-family: var(--mono);
+      font-size: 1rem;
+      width: 96px;
+      padding: 7px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .15s;
+      -moz-appearance: textfield;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    input[type="number"]:focus { border-color: var(--accent); }
+
+    /* Right side: = text, result field, Calculate button — always flush right */
+    .calc-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .eq-text {
+      font-family: var(--mono);
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    .result-field {
+      font-family: var(--mono);
+      font-size: 1rem;
+      width: 110px;
+      padding: 7px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--cream);
+      color: var(--accent);
+      font-weight: 600;
+      pointer-events: none;
+      user-select: all;
+    }
+    .result-field.increase { color: var(--accent2); }
+    .btn-calc {
+      font-family: var(--sans);
+      font-size: .88rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn-calc:hover { opacity: .85; }
+    .btn-calc:active { opacity: 1; }
+
+    .ad-slot {
+      background: var(--cream);
+      border: 1.5px dashed var(--rule);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      gap: 4px;
+    }
+    /* Leaderboard 728×90 — below header / above fold */
+    .ad-leaderboard {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      margin: 16px auto 0;
+    }
+    /* Rectangle 336×280 — sidebar-style, floated right next to content */
+    .ad-rectangle {
+      width: 336px;
+      height: 280px;
+      float: right;
+      margin: 0 0 20px 28px;
+    }
+    /* In-content banner 728×90 — between content sections */
+    .ad-banner {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      margin: 0 auto;
+    }
+    .ad-slot::before {
+      content: '▪';
+      font-size: 1rem;
+      opacity: .35;
+    }
+    .clearfix::after { content: ''; display: table; clear: both; }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      border-top: 1.5px solid var(--rule);
+      margin: 0;
+    }
+
+    /* ── CONTENT SECTIONS ── */
+    .content-section { padding: 56px 0; }
+    .content-section + .content-section { border-top: 1.5px solid var(--rule); }
+
+    h2.section-heading {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    h3.sub-heading {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: -.02em;
+      margin: 28px 0 8px;
+      color: var(--ink);
+    }
+    p { color: #3a3730; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── USE CASES ── */
+    .use-cases {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .use-case-card {
+      background: var(--cream);
+      border: 1.5px solid var(--rule);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+    .use-case-icon { font-size: 1.4rem; margin-bottom: 10px; }
+    .use-case-title {
+      font-weight: 600;
+      font-size: .95rem;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .use-case-desc {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 28px; display: flex; flex-direction: column; gap: 2px; }
+    details {
+      border: 1.5px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fff;
+    }
+    details + details { margin-top: 8px; }
+    summary {
+      cursor: pointer;
+      padding: 16px 20px;
+      font-weight: 600;
+      font-size: .95rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    details[open] summary::after { content: '−'; }
+    .faq-body {
+      padding: 0 20px 18px;
+      color: #3a3730;
+      font-size: .95rem;
+      line-height: 1.75;
+    }
+    .faq-body code {
+      font-family: var(--mono);
+      background: var(--cream);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: .88em;
+    }
+
+    /* ── FORMULA TABLE ── */
+    .formula-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: .92rem;
+    }
+    .formula-table th {
+      background: var(--cream);
+      text-align: left;
+      padding: 11px 16px;
+      font-weight: 600;
+      font-size: .82rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1.5px solid var(--rule);
+    }
+    .formula-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    .formula-table tr:last-child td { border-bottom: none; }
+    .formula-table td:nth-child(2) { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1.5px solid var(--rule);
+      padding: 32px 0;
+      margin-top: 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo { font-family: var(--serif); font-size: 1rem; }
+    .footer-links { display: flex; gap: 20px; font-size: .85rem; color: var(--muted); }
+    .footer-links a { color: var(--muted); }
+    .footer-note { font-size: .8rem; color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; gap: 8px; text-align: center; }
+      .expr { gap: 8px 6px; }
+      input[type="number"] { width: 100px; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      /* Global side padding — applied at the root level */
+      html { padding: 0 16px; }
+      .wrap { padding: 0; max-width: 100%; }
+      .header-inner { padding: 0; max-width: 100%; }
+      header { padding: 12px 0; }
+
+      /* Hero */
+      .hero { padding: 20px 0 16px; }
+      h1 { font-size: 1.3rem; }
+      .hero-sub { font-size: .82rem; }
+
+      /* Calculator card */
+      .calc-section { padding: 0 0 28px; }
+      .calc-card-box { margin: 16px 0; border-radius: 6px; }
+      .calc-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 18px 16px;
+      }
+      .expr { gap: 6px; width: 100%; }
+      input[type="number"] { width: 88px; font-size: .92rem; }
+      .calc-right {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+      }
+      .btn-calc { display: block; }
+      .result-field { flex: 1; min-width: 0; }
+
+      /* Ads */
+      .ad-leaderboard { height: 60px; }
+      .ad-rectangle { float: none; width: 100%; height: 120px; margin: 0 0 20px 0; }
+      .ad-banner { height: 60px; }
+
+      /* Use-cases grid */
+      .use-cases { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .use-case-card { padding: 14px 16px; }
+      .use-case-icon { font-size: 1.2rem; margin-bottom: 6px; }
+      .use-case-title { font-size: .88rem; }
+      .use-case-desc { font-size: .8rem; }
+
+      /* Content sections */
+      .content-section { padding: 36px 0; }
+      h2.section-heading { font-size: 1.35rem; }
+
+      /* Formula table — hide example column on small screens */
+      .formula-table th:nth-child(3),
+      .formula-table td:nth-child(3) { display: none; }
+      .formula-table th, .formula-table td { padding: 10px 12px; }
+
+      /* FAQ */
+      summary { font-size: .9rem; padding: 14px 16px; }
+      .faq-body { padding: 0 16px 14px; font-size: .88rem; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+
+    @media (max-width: 400px) {
+      html { padding: 0 12px; }
+      .use-cases { grid-template-columns: 1fr; }
+      input[type="number"] { width: 76px; }
+      h1 { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="wrap header-inner">
+    <div class="logo">Percent<span>Pro</span></div>
+    <span class="tagline-badge">Free · No Signup · Instant</span>
+  </div>
+</header>
+
+<!-- ── AD: Leaderboard 728×90 — top of page, high viewability ── -->
+<div class="wrap">
+  <div class="ad-slot ad-leaderboard" aria-label="Advertisement">
+    Advertisement · 728 × 90
+  </div>
+</div>
+
+<!-- ── COMPACT HERO ── -->
+<main>
+<section class="hero wrap" aria-label="Page introduction">
+  <h1>Percentage Calculator</h1>
+  <p class="hero-sub">Free online tool — find a percentage of a number, reverse-calculate a percent, or compute percentage change.</p>
+</section>
+
+<!-- ── CALCULATORS ── -->
+<section class="calc-section wrap" aria-label="Percentage calculators">
+  <div class="calc-card-box">
+  <div class="calc-rows">
+
+    <!-- CALC 1: What is X% of N -->
+    <div class="calc-row" role="group" aria-label="What is X percent of a number">
+      <div class="expr">
+        <span class="expr-label">What is</span>
+        <input type="number" id="c1-pct" placeholder="15" aria-label="Percentage" step="any" />
+        <span class="pct-symbol">%</span>
+        <span class="expr-label">of</span>
+        <input type="number" id="c1-num" placeholder="200" aria-label="Number" step="any" />
+      </div>
+      <div class="calc-right">
+        <span class="eq-text">=</span>
+        <input type="text" class="result-field" id="c1-answer" readonly placeholder="—" aria-label="Result" aria-live="polite" />
+        <button class="btn-calc" onclick="calc1()">Calculate</button>
+      </div>
+    </div>
+
+    <!-- CALC 2: A is what % of B -->
+    <div class="calc-row" role="group" aria-label="What percent is A of B">
+      <div class="expr">
+        <input type="number" id="c2-part" placeholder="30" aria-label="Part" step="any" />
+        <span class="expr-label">is what percent of</span>
+        <input type="number" id="c2-whole" placeholder="200" aria-label="Whole" step="any" />
+      </div>
+      <div class="calc-right">
+        <span class="eq-text">=</span>
+        <input type="text" class="result-field" id="c2-answer" readonly placeholder="—" aria-label="Result" aria-live="polite" />
+        <button class="btn-calc" onclick="calc2()">Calculate</button>
+      </div>
+    </div>
+
+    <!-- CALC 3: % change -->
+    <div class="calc-row" role="group" aria-label="Percentage increase or decrease">
+      <div class="expr">
+        <span class="expr-label">From</span>
+        <input type="number" id="c3-from" placeholder="80" aria-label="Original value" step="any" />
+        <span class="expr-label">to</span>
+        <input type="number" id="c3-to" placeholder="100" aria-label="New value" step="any" />
+      </div>
+      <div class="calc-right">
+        <span class="eq-text">=</span>
+        <input type="text" class="result-field" id="c3-answer" readonly placeholder="—" aria-label="Result" aria-live="polite" />
+        <button class="btn-calc" onclick="calc3()">Calculate</button>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<!-- ── USE CASES ── -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="uses-heading">
+  <h2 class="section-heading" id="uses-heading">Common ways people use this calculator</h2>
+  <p>Percentages appear in everyday decisions — from reading a grocery store discount to analyzing quarterly business growth. Here are the most common real-world use cases.</p>
+
+  <div class="clearfix">
+    <!-- AD: Large Rectangle 336×280 — floated right, inside content, highest CTR size -->
+    <div class="ad-slot ad-rectangle" aria-label="Advertisement">
+      Advertisement · 336 × 280
+    </div>
+
+    <div class="use-cases">
+      <div class="use-case-card">
+        <div class="use-case-icon">🛍️</div>
+        <div class="use-case-title">Shopping discounts</div>
+        <p class="use-case-desc">Find the final price after a 20%, 30%, or 50% discount is applied at checkout.</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">🍽️</div>
+        <div class="use-case-title">Restaurant tips</div>
+        <p class="use-case-desc">Quickly calculate a 15%, 18%, or 20% tip on any bill amount.</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">📈</div>
+        <div class="use-case-title">Sales & revenue growth</div>
+        <p class="use-case-desc">Measure month-over-month or year-over-year growth as a percentage change.</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">📝</div>
+        <div class="use-case-title">Test & exam scores</div>
+        <p class="use-case-desc">Convert raw scores (e.g., 43 out of 50) into a percentage grade.</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">🏦</div>
+        <div class="use-case-title">Finance & interest</div>
+        <p class="use-case-desc">Estimate interest charges, tax amounts, or investment returns as a percentage.</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">⚖️</div>
+        <div class="use-case-title">Weight & health tracking</div>
+        <p class="use-case-desc">Calculate the percentage of body weight lost or target macros met.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AD: In-content banner 728×90 between sections ── -->
+<hr class="section-divider" />
+<div class="wrap" style="padding-top:32px;padding-bottom:32px;">
+  <div class="ad-slot ad-banner" aria-label="Advertisement">
+    Advertisement · 728 × 90
+  </div>
+</div>
+
+<section class="content-section wrap" aria-labelledby="formulas-heading">
+  <h2 class="section-heading" id="formulas-heading">Percentage formula reference</h2>
+  <p>All three percentage calculations follow simple algebraic formulas. The table below provides a quick reference for students, professionals, and developers.</p>
+
+  <table class="formula-table" role="table" aria-label="Percentage formulas">
+    <thead>
+      <tr>
+        <th scope="col">Calculation</th>
+        <th scope="col">Formula</th>
+        <th scope="col">Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>X% of N</strong></td>
+        <td>(X ÷ 100) × N</td>
+        <td>15% of 200 = 30</td>
+      </tr>
+      <tr>
+        <td><strong>A is what % of B</strong></td>
+        <td>(A ÷ B) × 100</td>
+        <td>30 ÷ 200 × 100 = 15%</td>
+      </tr>
+      <tr>
+        <td><strong>% increase from A to B</strong></td>
+        <td>((B − A) ÷ A) × 100</td>
+        <td>80 → 100: +25%</td>
+      </tr>
+      <tr>
+        <td><strong>% decrease from A to B</strong></td>
+        <td>((A − B) ÷ A) × 100</td>
+        <td>100 → 80: −20%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── FAQ ── -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="faq-heading">
+  <h2 class="section-heading" id="faq-heading">Frequently asked questions</h2>
+  <p>These answers are written to be clear and precise — helpful for students, professionals, and AI answer engines alike.</p>
+
+  <div class="faq-list">
+
+    <details>
+      <summary>What is a percentage?</summary>
+      <div class="faq-body">
+        <p>A <strong>percentage</strong> is a number expressed as a fraction of 100, represented with the <code>%</code> symbol. The word comes from the Latin <em>per centum</em>, meaning "by the hundred." Percentages are one of the most universal ways to express ratios, rates, and proportions across finance, science, statistics, and everyday life.</p>
+        <p>For example, if a class of 40 students has 10 absences, the absence rate is <code>(10 ÷ 40) × 100 = 25%</code>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do you calculate a percentage of a number?</summary>
+      <div class="faq-body">
+        <p>To find <strong>X% of N</strong>, use the formula: <code>Result = (X ÷ 100) × N</code>.</p>
+        <p><strong>Example:</strong> What is 18% of $65?<br>
+        <code>(18 ÷ 100) × 65 = 0.18 × 65 = $11.70</code></p>
+        <p>This is commonly used to calculate tips, taxes, discounts, and commissions.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do you find what percentage one number is of another?</summary>
+      <div class="faq-body">
+        <p>Divide the <em>part</em> by the <em>whole</em>, then multiply by 100: <code>% = (Part ÷ Whole) × 100</code>.</p>
+        <p><strong>Example:</strong> A student answered 43 out of 50 questions correctly.<br>
+        <code>(43 ÷ 50) × 100 = 86%</code></p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do you calculate percentage increase or decrease?</summary>
+      <div class="faq-body">
+        <p>Use the formula: <code>% Change = ((New Value − Old Value) ÷ Old Value) × 100</code>.</p>
+        <p>A <strong>positive result</strong> means an increase; a <strong>negative result</strong> means a decrease.</p>
+        <p><strong>Increase example:</strong> Sales grew from $80,000 to $100,000.<br>
+        <code>((100,000 − 80,000) ÷ 80,000) × 100 = +25%</code></p>
+        <p><strong>Decrease example:</strong> A price dropped from $50 to $40.<br>
+        <code>((40 − 50) ÷ 50) × 100 = −20%</code></p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What is the difference between percentage and percentile?</summary>
+      <div class="faq-body">
+        <p>A <strong>percentage</strong> describes a proportion out of 100 — it's an absolute measure. A <strong>percentile</strong> is a relative ranking: it tells you what percentage of a dataset falls <em>below</em> a given value.</p>
+        <p>Example: Scoring <strong>92%</strong> on an exam means you answered 92% of questions correctly. Scoring in the <strong>92nd percentile</strong> means you scored higher than 92% of all test takers — your raw score could be anything.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Is there a difference between percent and percentage point?</summary>
+      <div class="faq-body">
+        <p>Yes — this is a common source of confusion in finance and economics.</p>
+        <p>If an interest rate rises from <strong>2% to 3%</strong>, it increased by <strong>1 percentage point</strong>, but increased by <strong>50%</strong> in relative terms (because 1 is 50% of 2).</p>
+        <p>Percentage <em>points</em> measure absolute change between two percentage figures. Percent change measures relative change. Always check which measure a headline or report is using.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I calculate a reverse percentage (find the original price before a discount)?</summary>
+      <div class="faq-body">
+        <p>If you know the <em>final</em> price after a discount, divide by <code>(1 − discount rate)</code>.</p>
+        <p><strong>Example:</strong> A jacket costs $68 after a 15% discount. What was the original price?<br>
+        <code>Original = $68 ÷ (1 − 0.15) = $68 ÷ 0.85 ≈ $80</code></p>
+        <p>This is useful for back-calculating pre-tax prices, original retail values, or pre-markup wholesale costs.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<hr class="section-divider" />
+<section class="content-section wrap" aria-labelledby="about-heading">
+  <h2 class="section-heading" id="about-heading">About this calculator</h2>
+  <p>PercentPro is a free, ad-light percentage calculator designed for speed and clarity. All calculations happen instantly in your browser — no data is sent to any server, and no account is required.</p>
+  <p>The three tools on this page cover the most common percentage problems encountered in school, work, and everyday life: finding a percentage of a known number, expressing a ratio as a percentage, and measuring relative change between two values.</p>
+  <p>Keyboard-friendly: press <strong>Tab</strong> to move between input fields and <strong>Enter</strong> to calculate.</p>
+</section>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-logo">Percent<span style="color:var(--accent)">Pro</span></div>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/help">Help</a>
+    </div>
+    <div class="footer-note">© 2025 PercentPro. Free to use.</div>
+  </div>
+</footer>
+
+<!-- ── CALCULATOR LOGIC ── -->
+<script>
+  function fmt(n) {
+    return parseFloat(n.toPrecision(10)).toString();
+  }
+
+  function setResult(answerId, value, type) {
+    const el = document.getElementById(answerId);
+    el.value = value;
+    el.className = 'result-field' + (type ? ' ' + type : '');
+  }
+
+  // Calc 1: X% of N
+  function calc1() {
+    const pct = parseFloat(document.getElementById('c1-pct').value);
+    const num = parseFloat(document.getElementById('c1-num').value);
+    if (isNaN(pct) || isNaN(num)) { setResult('c1-answer','—',''); return; }
+    setResult('c1-answer', fmt((pct / 100) * num), '');
+  }
+
+  // Calc 2: Part is what % of Whole
+  function calc2() {
+    const part  = parseFloat(document.getElementById('c2-part').value);
+    const whole = parseFloat(document.getElementById('c2-whole').value);
+    if (isNaN(part) || isNaN(whole) || whole === 0) { setResult('c2-answer','—',''); return; }
+    setResult('c2-answer', fmt((part / whole) * 100) + '%', '');
+  }
+
+  // Calc 3: % change
+  function calc3() {
+    const from = parseFloat(document.getElementById('c3-from').value);
+    const to   = parseFloat(document.getElementById('c3-to').value);
+    if (isNaN(from) || isNaN(to) || from === 0) { setResult('c3-answer','—',''); return; }
+    const change = ((to - from) / Math.abs(from)) * 100;
+    const isInc  = change >= 0;
+    setResult('c3-answer', (isInc ? '+' : '') + fmt(change) + '%', isInc ? 'increase' : '');
+  }
+
+  // Live calc on input
+  ['c1-pct','c1-num'].forEach(id => document.getElementById(id).addEventListener('input', calc1));
+  ['c2-part','c2-whole'].forEach(id => document.getElementById(id).addEventListener('input', calc2));
+  ['c3-from','c3-to'].forEach(id => document.getElementById(id).addEventListener('input', calc3));
+
+  // Enter key — triggers live recalc (inputs already fire on 'input' event)
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.activeElement.blur();
+  });
+</script>
+</body>
+</html>
