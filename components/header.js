@@ -6,7 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
     <header>
       <div class="header-inner">
         <a href="/" class="logo">Percent<span>Pro</span></a>
-        <span class="tagline-badge">Free · No Signup · Instant</span>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="/">Percentage</a>
+          <a href="/tip-calculator">Tip</a>
+          <a href="/discount-calculator">Discount</a>
+          <a href="/gpa-calculator">GPA</a>
+          <a href="/tax-calculator">Tax</a>
+        </nav>
       </div>
     </header>
   `;
