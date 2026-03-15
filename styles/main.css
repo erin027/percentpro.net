@@ -39,7 +39,7 @@ a:hover { text-decoration: underline; }
 /* ── HEADER ── */
 header {
   border-bottom: 1.5px solid var(--rule);
-  padding: 14px 0;
+  padding: 14px 24px;
   background: var(--paper);
 }
 .header-inner {
@@ -78,6 +78,11 @@ header {
   text-decoration: none;
 }
 
+/* --- MAIN --- */
+main{
+  padding-left:24px;
+  padding-right:24px;
+}
 /* ── FOOTER ── */
 footer {
   border-top: 1.5px solid var(--rule);
@@ -89,6 +94,8 @@ footer {
   flex-direction: column;
   max-width: 860px;
   margin: 0 auto;
+  padding-left:24px;
+  padding-right:24px;
   gap: 20px;
 }
 .footer-logo { font-family: var(--serif); font-size: 1.1rem; }
