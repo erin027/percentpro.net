@@ -33,10 +33,7 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ── LAYOUT ──
-   .wrap is the single source of truth for horizontal rhythm.
-   All page sections use .wrap to stay aligned.
-*/
+/* ── LAYOUT ── */
 .wrap {
   max-width: 860px;
   margin: 0 auto;
@@ -229,11 +226,10 @@ details[open] summary::after { content: '−'; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 720px) {
-  /* Single source of truth for mobile padding */
+  /* All padded containers use the same side spacing */
   .wrap,
   .header-inner,
-  .footer-inner,
-  main { padding-left: 16px; padding-right: 16px; }
+  .footer-inner { padding-left: 16px; padding-right: 16px; }
 
   h1 { font-size: 1.3rem; }
   .content-section { padding: 36px 0; }
@@ -269,8 +265,7 @@ details[open] summary::after { content: '−'; }
 @media (max-width: 400px) {
   .wrap,
   .header-inner,
-  .footer-inner,
-  main { padding-left: 12px; padding-right: 12px; }
+  .footer-inner { padding-left: 12px; padding-right: 12px; }
 
   .use-cases { grid-template-columns: 1fr; }
   h1 { font-size: 1.15rem; }
