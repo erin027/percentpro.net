@@ -104,9 +104,9 @@
       --accent2: #b45309;
     }
 
-    .hero { padding: 28px 0 24px; }
+    .hero { padding-top: 28px; padding-bottom: 24px; }
     .hero-sub { color: var(--muted); font-size: .88rem; }
-    .calc-section { padding: 28px 0 36px; }
+    .calc-section { padding-top: 28px; padding-bottom: 36px; }
 
     .calc-card-box {
       background: #fff;
@@ -272,21 +272,20 @@
     .income-result.visible { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .income-result .summary-item { text-align: center; }
 
-    .related-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-    .related-link {
-      font-size: .85rem;
-      padding: 6px 14px;
-      border: 1.5px solid var(--rule);
-      border-radius: 99px;
-      color: var(--muted);
-      background: var(--cream);
-      transition: all .15s;
-    }
-    .related-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    /* Calculator pills */
+    .calc-pills-wrap { margin-top: 24px; }
+    .calc-pills-label { font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .calc-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .calc-pill { font-family: var(--sans); font-size: .88rem; font-weight: 600; padding: 9px 16px; border-radius: 99px; border: 1.5px solid var(--rule); background: #fff; color: var(--ink); text-decoration: none; transition: all .15s; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 4px rgba(15,14,13,.07); }
+    .calc-pill::after { content: '→'; font-size: .78rem; color: var(--muted); transition: transform .15s, color .15s; }
+    .calc-pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+    .calc-pill:hover::after { color: var(--accent); transform: translateX(3px); }
+    .calc-pill.active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); font-weight: 700; cursor: default; }
+    .calc-pill.active::after { display: none; }
 
     @media (max-width: 720px) {
-      .hero { padding: 20px 0 16px; }
-      .calc-section { padding: 0 0 28px; }
+      .hero { padding-top: 20px; padding-bottom: 16px; }
+      .calc-section { padding-top: 0; padding-bottom: 28px; }
       .calc-card-box { margin: 16px 0; border-radius: 6px; }
       .calc-row { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 16px; }
       .expr { gap: 6px; width: 100%; }
@@ -312,12 +311,6 @@
 <!-- HEADER (shared) -->
 <script src="/components/header.js"></script>
 
-<!-- AD: Leaderboard -->
-<div class="wrap">
-  <div class="ad-slot ad-leaderboard" aria-label="Advertisement">
-    Advertisement · 728 × 90
-  </div>
-</div>
 
 <main>
 
@@ -431,7 +424,6 @@
       </div>
     </div>
 
-  </div>
 </section>
 
 <!-- USE CASES -->
@@ -439,8 +431,6 @@
 <section class="content-section wrap" aria-labelledby="uses-heading">
   <h2 class="section-heading" id="uses-heading">Common tax calculation scenarios</h2>
   <p>Taxes affect nearly every financial decision. Here are the most common situations where knowing your tax amount matters.</p>
-  <div class="clearfix">
-    <div class="ad-slot ad-rectangle" aria-label="Advertisement">Advertisement · 336 × 280</div>
     <div class="use-cases">
       <div class="use-case-card"><div class="use-case-icon">🛒</div><div class="use-case-title">Online shopping</div><p class="use-case-desc">Calculate the true cost of a purchase before checkout, including your local sales tax rate.</p></div>
       <div class="use-case-card"><div class="use-case-icon">🏠</div><div class="use-case-title">Real estate</div><p class="use-case-desc">Estimate property transfer taxes and calculate the pre-tax price of a home listing.</p></div>
@@ -452,11 +442,6 @@
   </div>
 </section>
 
-<!-- AD: In-content banner -->
-<hr class="section-divider" />
-<div class="wrap" style="padding-top:32px;padding-bottom:32px;">
-  <div class="ad-slot ad-banner" aria-label="Advertisement">Advertisement · 728 × 90</div>
-</div>
 
 <!-- US Sales Tax by State -->
 <section class="content-section wrap" aria-labelledby="rates-heading">
@@ -532,12 +517,39 @@
   <h2 class="section-heading" id="about-heading">About this calculator</h2>
   <p>This tax calculator has three modes: calculate sales tax on a purchase, reverse-calculate the pre-tax price from a total, and estimate US federal income tax using current 2024 tax brackets. The income tax estimate is for federal tax only and does not include state income tax, FICA, or deductions.</p>
   <p>For professional tax advice, consult a qualified tax professional or CPA. This tool is for estimation purposes only.</p>
-  <nav class="related-links" aria-label="Related calculators">
-    <a href="/" class="related-link">Percentage Calculator</a>
-    <a href="/tip-calculator" class="related-link">Tip Calculator</a>
-    <a href="/discount-calculator" class="related-link">Discount Calculator</a>
-    <a href="/gpa-calculator" class="related-link">GPA Calculator</a>
+
+  <nav class="calc-pills-wrap" aria-label="Calculator pages">
+    <p class="calc-pills-label">Try our other free calculators</p>
+    <div class="calc-pills">
+      <a href="/" class="calc-pill">Percentage Calculator</a>
+      <a href="/tip-calculator" class="calc-pill">Tip Calculator</a>
+      <a href="/discount-calculator" class="calc-pill">Discount Calculator</a>
+      <a href="/gpa-calculator" class="calc-pill">GPA Calculator</a>
+      <a href="/tax-calculator" class="calc-pill active">Tax Calculator</a>
+    </div>
   </nav>
+  <div class="use-cases" style="margin-top:24px;">
+    <a href="/" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
+      <div class="use-case-icon">🔢</div>
+      <div class="use-case-title">Percentage Calculator</div>
+      <p class="use-case-desc">Find a percentage of a number, reverse-calculate a percent, or compute percentage change.</p>
+    </a>
+    <a href="/tip-calculator" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
+      <div class="use-case-icon">🍽️</div>
+      <div class="use-case-title">Tip Calculator</div>
+      <p class="use-case-desc">Calculate restaurant tips and split the bill between any number of people.</p>
+    </a>
+    <a href="/discount-calculator" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
+      <div class="use-case-icon">🏷️</div>
+      <div class="use-case-title">Discount Calculator</div>
+      <p class="use-case-desc">Find the sale price after any percentage off, or reverse-calculate the original price.</p>
+    </a>
+    <a href="/gpa-calculator" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
+      <div class="use-case-icon">🎓</div>
+      <div class="use-case-title">GPA Calculator</div>
+      <p class="use-case-desc">Calculate your semester or cumulative GPA using letter grades and credit hours.</p>
+    </a>
+  </div>
 </section>
 
 </main>
