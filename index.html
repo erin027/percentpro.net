@@ -108,14 +108,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- ── SHARED STYLES ── -->
-  <link rel="stylesheet" href="/styles/main.css?v=2" />
+  <link rel="stylesheet" href="/styles/main.css" />
 
   <style>
     /* ── PAGE-SPECIFIC: Calculator ── */
-    .hero { padding: 28px 0 24px; }
+    .hero { padding-top: 28px; padding-bottom: 24px; }
     .hero-sub { color: var(--muted); font-size: .88rem; }
 
-    .calc-section { padding: 28px 0 36px; }
+    .calc-section { padding-top: 28px; padding-bottom: 36px; }
     .calc-card-box {
       background: #fff;
       border: 1.5px solid var(--rule);
@@ -245,9 +245,9 @@
     .calc-pill.active::after { display: none; }
 
     @media (max-width: 720px) {
-      .hero { padding: 20px 0 16px; }
+      .hero { padding-top: 20px; padding-bottom: 16px; }
       .hero-sub { font-size: .82rem; }
-      .calc-section { padding: 0 0 28px; }
+      .calc-section { padding-top: 0; padding-bottom: 28px; }
       .calc-card-box { margin: 16px 0; border-radius: 6px; }
       .calc-row { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 16px; }
       .expr { gap: 6px; width: 100%; }
@@ -267,12 +267,6 @@
 <script src="/components/header.js"></script>
 
 <!-- ── AD: Leaderboard 728×90 ── -->
-<div class="wrap">
-  <div class="ad-slot ad-leaderboard" aria-label="Advertisement">
-    Advertisement · 728 × 90
-  </div>
-</div>
-
 <main>
 
 <!-- ── HERO ── -->
@@ -341,9 +335,7 @@
   <h2 class="section-heading" id="uses-heading">Common ways people use this calculator</h2>
   <p>Percentages appear in everyday decisions — from reading a grocery store discount to analyzing quarterly business growth. Here are the most common real-world use cases.</p>
 
-  <div class="clearfix">
-    <div class="ad-slot ad-rectangle" aria-label="Advertisement">Advertisement · 336 × 280</div>
-    <div class="use-cases">
+  <div class="use-cases">
       <div class="use-case-card"><div class="use-case-icon">🛍️</div><div class="use-case-title">Shopping discounts</div><p class="use-case-desc">Find the final price after a 20%, 30%, or 50% discount is applied at checkout.</p></div>
       <div class="use-case-card"><div class="use-case-icon">🍽️</div><div class="use-case-title">Restaurant tips</div><p class="use-case-desc">Quickly calculate a 15%, 18%, or 20% tip on any bill amount.</p></div>
       <div class="use-case-card"><div class="use-case-icon">📈</div><div class="use-case-title">Sales & revenue growth</div><p class="use-case-desc">Measure month-over-month or year-over-year growth as a percentage change.</p></div>
@@ -351,14 +343,7 @@
       <div class="use-case-card"><div class="use-case-icon">🏦</div><div class="use-case-title">Finance & interest</div><p class="use-case-desc">Estimate interest charges, tax amounts, or investment returns as a percentage.</p></div>
       <div class="use-case-card"><div class="use-case-icon">⚖️</div><div class="use-case-title">Weight & health tracking</div><p class="use-case-desc">Calculate the percentage of body weight lost or target macros met.</p></div>
     </div>
-  </div>
 </section>
-
-<!-- ── AD: In-content banner ── -->
-<hr class="section-divider" />
-<div class="wrap" style="padding-top:32px;padding-bottom:32px;">
-  <div class="ad-slot ad-banner" aria-label="Advertisement">Advertisement · 728 × 90</div>
-</div>
 
 <!-- ── FORMULA REFERENCE ── -->
 <section class="content-section wrap" aria-labelledby="formulas-heading">
