@@ -17,16 +17,16 @@
   </script>
 
   <!-- PRIMARY SEO -->
-  <title>Tax Calculator — Calculate Sales Tax & Income Tax | PercentPro</title>
-  <meta name="description" content="Free tax calculator — calculate sales tax on any purchase, or estimate your income tax. Find the price before or after tax instantly. No signup needed." />
-  <meta name="keywords" content="tax calculator, sales tax calculator, income tax calculator, price after tax, price before tax, how to calculate tax, tax percentage calculator" />
-  <link rel="canonical" href="https://percentpro.net/tax-calculator/" />
+  <title>Tip Calculator — How Much Should I Tip? | PercentPro</title>
+  <meta name="description" content="Free tip calculator — instantly calculate how much to tip at a restaurant. Split the bill between multiple people. Works for 15%, 18%, 20% and any custom tip." />
+  <meta name="keywords" content="tip calculator, how much to tip, restaurant tip calculator, split bill calculator, tip percentage calculator, gratuity calculator" />
+  <link rel="canonical" href="https://percentpro.net/tip-calculator/" />
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Tax Calculator — Calculate Sales Tax & Income Tax" />
-  <meta property="og:description" content="Free tax calculator. Calculate sales tax on purchases or estimate income tax. Find prices before and after tax instantly." />
-  <meta property="og:url" content="https://percentpro.net/tax-calculator/" />
+  <meta property="og:title" content="Tip Calculator — How Much Should I Tip?" />
+  <meta property="og:description" content="Free tip calculator. Calculate restaurant tips instantly and split between any number of people." />
+  <meta property="og:url" content="https://percentpro.net/tip-calculator/" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- STRUCTURED DATA -->
@@ -34,17 +34,16 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Tax Calculator",
-    "url": "https://percentpro.net/tax-calculator/",
+    "name": "Tip Calculator",
+    "url": "https://percentpro.net/tip-calculator/",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "All",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "description": "A free online tax calculator with three modes: calculate sales tax on a purchase, find the pre-tax price from a post-tax amount, and estimate income tax.",
+    "description": "A free online tip calculator. Enter your bill amount, choose a tip percentage, and optionally split between multiple people.",
     "featureList": [
-      "Calculate sales tax amount and total price",
-      "Reverse-calculate price before tax",
-      "Estimate income tax by bracket",
-      "Supports any tax rate percentage"
+      "Calculate tip amount from bill total",
+      "Calculate total bill including tip",
+      "Split bill and tip between multiple people"
     ]
   }
   </script>
@@ -55,34 +54,34 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do you calculate sales tax?",
+        "name": "How much should I tip at a restaurant?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Multiply the price by the tax rate divided by 100. Formula: Tax = Price × (Tax Rate ÷ 100). Total = Price + Tax. Example: $50 item with 8% sales tax. Tax = $50 × 0.08 = $4.00. Total = $50 + $4 = $54.00."
+          "text": "The standard restaurant tip in the United States is 15% to 20% of the pre-tax bill. 15% is considered a standard tip, 18% is good service, and 20% or more is for excellent service. In other countries, tipping customs vary — in Japan tipping is not customary, while in the UK 10-15% is typical."
         }
       },
       {
         "@type": "Question",
-        "name": "How do you find the price before tax?",
+        "name": "How do you calculate a tip?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Divide the total price by (1 + tax rate). Formula: Pre-tax price = Total ÷ (1 + Tax Rate / 100). Example: Total price is $54 with 8% tax. Pre-tax = $54 ÷ 1.08 = $50.00."
+          "text": "To calculate a tip, multiply the bill amount by the tip percentage divided by 100. Formula: Tip = Bill × (Tip % ÷ 100). Example: 20% tip on a $45 bill = $45 × 0.20 = $9.00 tip. Total = $45 + $9 = $54."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the average US sales tax rate?",
+        "name": "How do you split a bill with tip between multiple people?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The average combined state and local sales tax rate in the United States is approximately 7.12% as of 2024. Rates vary significantly by state — from 0% in states like Oregon, Montana, and New Hampshire, to over 10% in some cities. California has the highest statewide rate at 7.25%, while combined rates in cities like Chicago and Seattle can exceed 10%."
+          "text": "Add the tip amount to the total bill, then divide by the number of people. Formula: Per person = (Bill + Tip) ÷ Number of people. Example: $45 bill + $9 tip = $54 total ÷ 3 people = $18 per person."
         }
       },
       {
         "@type": "Question",
-        "name": "How does income tax work in the US?",
+        "name": "Should you tip on the pre-tax or post-tax amount?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The US uses a progressive federal income tax system with brackets. You do not pay the highest rate on all your income — only on the portion that falls within each bracket. For example, if the 22% bracket starts at $44,725 and your income is $60,000, only the income above $44,725 is taxed at 22%. Income below that threshold is taxed at lower rates."
+          "text": "Etiquette experts generally recommend tipping on the pre-tax amount, as tax is not part of the service. However, tipping on the post-tax total is also widely accepted and is slightly more generous to the server."
         }
       }
     ]
@@ -97,17 +96,18 @@
   <link rel="stylesheet" href="/styles/main.css" />
 
   <style>
-    /* PAGE ACCENT — slate blue for Tax Calculator */
+    /* PAGE ACCENT — deep teal/green for Tip Calculator */
     :root {
-      --accent: #2c5282;
-      --accent-soft: #ebf4ff;
-      --accent2: #b45309;
+      --accent: #1a6b5c;
+      --accent-soft: #e8f4f1;
+      --accent2: #c8401a;
     }
 
-    .hero { padding: 28px 0 24px; }
+    /* PAGE-SPECIFIC */
+    .hero { padding-top: 28px; padding-bottom: 24px; }
     .hero-sub { color: var(--muted); font-size: .88rem; }
-    .calc-section { padding: 28px 0 36px; }
 
+    .calc-section { padding-top: 28px; padding-bottom: 36px; }
     .calc-card-box {
       background: #fff;
       border: 1.5px solid var(--rule);
@@ -116,31 +116,6 @@
       overflow: hidden;
       margin: 28px 0;
     }
-
-    /* Tabs */
-    .calc-tabs {
-      display: flex;
-      border-bottom: 1px solid var(--rule);
-      background: var(--cream);
-    }
-    .calc-tab {
-      font-family: var(--sans);
-      font-size: .85rem;
-      font-weight: 600;
-      padding: 12px 20px;
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      border-bottom: 2.5px solid transparent;
-      margin-bottom: -1px;
-      transition: all .15s;
-    }
-    .calc-tab.active { color: var(--accent); border-bottom-color: var(--accent); background: #fff; }
-    .calc-panel { display: none; }
-    .calc-panel.active { display: block; }
-
-    /* Rows */
     .calc-rows { display: flex; flex-direction: column; }
     .calc-row {
       display: flex;
@@ -159,7 +134,7 @@
     input[type="number"] {
       font-family: var(--mono);
       font-size: 1rem;
-      width: 110px;
+      width: 96px;
       padding: 7px 10px;
       border: 1.5px solid var(--rule);
       border-radius: var(--radius);
@@ -173,14 +148,14 @@
     input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
     input[type="number"]:focus { border-color: var(--accent); }
 
-    /* Tax rate presets */
-    .rate-presets {
+    /* Quick tip buttons */
+    .tip-presets {
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
       margin-left: 4px;
     }
-    .rate-preset {
+    .tip-preset {
       font-family: var(--mono);
       font-size: .78rem;
       padding: 4px 10px;
@@ -191,17 +166,18 @@
       cursor: pointer;
       transition: all .15s;
     }
-    .rate-preset:hover, .rate-preset.active {
+    .tip-preset:hover, .tip-preset.active {
       background: var(--accent);
       color: #fff;
       border-color: var(--accent);
     }
 
     .calc-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+    .eq-text { font-family: var(--mono); font-size: 1rem; color: var(--muted); }
     .result-field {
       font-family: var(--mono);
       font-size: 1rem;
-      width: 120px;
+      width: 110px;
       padding: 7px 10px;
       border: 1.5px solid var(--rule);
       border-radius: var(--radius);
@@ -227,50 +203,33 @@
     .btn-calc:hover { opacity: .85; }
     .btn-calc:active { opacity: 1; }
 
-    /* Results summary */
+    /* Results summary card */
     .results-summary {
+      display: none;
       margin: 0 36px 24px;
       background: var(--accent-soft);
-      border: 1.5px solid #bee3f8;
+      border: 1.5px solid #b2d8d0;
       border-radius: 6px;
       padding: 20px 24px;
-      display: none;
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
-    .results-summary.visible { display: grid; }
+    .results-summary.hidden { display: none; }
     .summary-item { text-align: center; }
-    .summary-value { font-family: var(--mono); font-size: 1.4rem; font-weight: 600; color: var(--accent); display: block; }
-    .summary-label { font-size: .78rem; color: var(--muted); margin-top: 4px; display: block; }
-
-    /* Income tax brackets */
-    .bracket-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: .9rem; }
-    .bracket-table th {
-      background: var(--cream);
-      text-align: left;
-      padding: 10px 14px;
+    .summary-value {
+      font-family: var(--mono);
+      font-size: 1.4rem;
       font-weight: 600;
+      color: var(--accent);
+      display: block;
+    }
+    .summary-label {
       font-size: .78rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
       color: var(--muted);
-      border-bottom: 1.5px solid var(--rule);
+      margin-top: 4px;
+      display: block;
     }
-    .bracket-table td { padding: 10px 14px; border-bottom: 1px solid var(--rule); }
-    .bracket-table tr:last-child td { border-bottom: none; }
-    .bracket-table tr.active-bracket { background: var(--accent-soft); font-weight: 600; }
-    .bracket-table td:nth-child(3) { font-family: var(--mono); color: var(--accent); }
-
-    .income-result {
-      margin: 0 36px 24px;
-      background: var(--accent-soft);
-      border: 1.5px solid #bee3f8;
-      border-radius: 6px;
-      padding: 20px 24px;
-      display: none;
-    }
-    .income-result.visible { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .income-result .summary-item { text-align: center; }
 
     /* Calculator pills */
     .calc-pills-wrap { margin-top: 24px; }
@@ -284,8 +243,8 @@
     .calc-pill.active::after { display: none; }
 
     @media (max-width: 720px) {
-      .hero { padding: 20px 0 16px; }
-      .calc-section { padding: 0 0 28px; }
+      .hero { padding-top: 20px; padding-bottom: 16px; }
+      .calc-section { padding-top: 0; padding-bottom: 28px; }
       .calc-card-box { margin: 16px 0; border-radius: 6px; }
       .calc-row { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 16px; }
       .expr { gap: 6px; width: 100%; }
@@ -295,14 +254,11 @@
       .result-field { flex: 1; min-width: 0; }
       .results-summary { margin: 0 16px 20px; grid-template-columns: 1fr 1fr; }
       .results-summary .summary-item:last-child { grid-column: span 2; }
-      .income-result { margin: 0 16px 20px; }
-      .calc-tab { padding: 10px 14px; font-size: .8rem; }
-      .bracket-table th:nth-child(2), .bracket-table td:nth-child(2) { display: none; }
     }
     @media (max-width: 400px) {
+      input[type="number"] { width: 76px; }
       .results-summary { grid-template-columns: 1fr; }
       .results-summary .summary-item:last-child { grid-column: span 1; }
-      input[type="number"] { width: 76px; }
     }
   </style>
 </head>
@@ -311,215 +267,140 @@
 <!-- HEADER (shared) -->
 <script src="/components/header.js"></script>
 
-<!-- AD: Leaderboard -->
-<div class="wrap">
-  <div class="ad-slot ad-leaderboard" aria-label="Advertisement">
-    Advertisement · 728 × 90
-  </div>
-</div>
 
 <main>
 
 <!-- HERO -->
 <section class="hero wrap" aria-label="Page introduction">
-  <h1>Tax Calculator</h1>
-  <p class="hero-sub">Calculate sales tax on any purchase, find the pre-tax price, or estimate your federal income tax — instantly and free.</p>
+  <h1>Tip Calculator</h1>
+  <p class="hero-sub">Calculate your tip and split the bill instantly — enter the bill amount, pick a tip percentage, and choose how many people.</p>
 </section>
 
 <!-- CALCULATORS -->
-<section class="calc-section wrap" aria-label="Tax calculators">
+<section class="calc-section wrap" aria-label="Tip calculator">
   <div class="calc-card-box">
+    <div class="calc-rows">
 
-    <div class="calc-tabs" role="tablist">
-      <button class="calc-tab active" onclick="switchTab('sales-tax')">Sales tax</button>
-      <button class="calc-tab" onclick="switchTab('pre-tax')">Price before tax</button>
-      <button class="calc-tab" onclick="switchTab('income-tax')">Income tax</button>
+      <!-- Bill amount -->
+      <div class="calc-row" role="group" aria-label="Bill amount">
+        <div class="expr">
+          <span class="expr-label">Bill amount</span>
+          <span class="currency-symbol">$</span>
+          <input type="number" id="bill" placeholder="45.00" aria-label="Bill amount" step="0.01" min="0" />
+        </div>
+      </div>
+
+      <!-- Tip % with presets -->
+      <div class="calc-row" role="group" aria-label="Tip percentage">
+        <div class="expr">
+          <span class="expr-label">Tip</span>
+          <input type="number" id="tip-pct" placeholder="18" aria-label="Tip percentage" step="1" min="0" max="100" />
+          <span class="currency-symbol">%</span>
+          <div class="tip-presets">
+            <button class="tip-preset" onclick="setTip(10)">10%</button>
+            <button class="tip-preset" onclick="setTip(15)">15%</button>
+            <button class="tip-preset active" onclick="setTip(18)">18%</button>
+            <button class="tip-preset" onclick="setTip(20)">20%</button>
+            <button class="tip-preset" onclick="setTip(25)">25%</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Split -->
+      <div class="calc-row" role="group" aria-label="Number of people">
+        <div class="expr">
+          <span class="expr-label">Split between</span>
+          <input type="number" id="people" placeholder="1" aria-label="Number of people" step="1" min="1" max="100" value="1" />
+          <span class="expr-label">people</span>
+        </div>
+        <div class="calc-right">
+          <button class="btn-calc" onclick="calculate()">Calculate</button>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Panel 1: Sales tax -->
-    <div class="calc-panel active" id="panel-sales-tax">
-      <div class="calc-rows">
-        <div class="calc-row" role="group" aria-label="Price before tax">
-          <div class="expr">
-            <span class="expr-label">Price</span>
-            <span class="currency-symbol">$</span>
-            <input type="number" id="price" placeholder="50.00" step="0.01" min="0" aria-label="Price" />
-          </div>
-        </div>
-        <div class="calc-row" role="group" aria-label="Tax rate">
-          <div class="expr">
-            <span class="expr-label">Tax rate</span>
-            <input type="number" id="tax-rate" placeholder="8" step="0.01" min="0" max="100" aria-label="Tax rate" />
-            <span class="currency-symbol">%</span>
-            <div class="rate-presets">
-              <button class="rate-preset" onclick="setRate(5)">5%</button>
-              <button class="rate-preset" onclick="setRate(7)">7%</button>
-              <button class="rate-preset active" onclick="setRate(8)">8%</button>
-              <button class="rate-preset" onclick="setRate(10)">10%</button>
-              <button class="rate-preset" onclick="setRate(13)">13%</button>
-            </div>
-          </div>
-          <div class="calc-right">
-            <button class="btn-calc" onclick="calcSalesTax()">Calculate</button>
-          </div>
-        </div>
+    <!-- Results summary -->
+    <div class="results-summary hidden" id="results-summary">
+      <div class="summary-item">
+        <span class="summary-value" id="tip-amount">—</span>
+        <span class="summary-label">Tip amount</span>
       </div>
-      <div class="results-summary" id="summary-sales">
-        <div class="summary-item"><span class="summary-value" id="tax-amount">—</span><span class="summary-label">Tax amount</span></div>
-        <div class="summary-item"><span class="summary-value" id="total-price">—</span><span class="summary-label">Total price</span></div>
-        <div class="summary-item"><span class="summary-value" id="pre-tax-display">—</span><span class="summary-label">Pre-tax price</span></div>
+      <div class="summary-item">
+        <span class="summary-value" id="total-amount">—</span>
+        <span class="summary-label">Total bill</span>
       </div>
-    </div>
-
-    <!-- Panel 2: Pre-tax price -->
-    <div class="calc-panel" id="panel-pre-tax">
-      <div class="calc-rows">
-        <div class="calc-row" role="group" aria-label="Total price including tax">
-          <div class="expr">
-            <span class="expr-label">Total price (with tax)</span>
-            <span class="currency-symbol">$</span>
-            <input type="number" id="total-with-tax" placeholder="54.00" step="0.01" min="0" aria-label="Total price with tax" />
-          </div>
-        </div>
-        <div class="calc-row" role="group" aria-label="Tax rate">
-          <div class="expr">
-            <span class="expr-label">Tax rate</span>
-            <input type="number" id="tax-rate-2" placeholder="8" step="0.01" min="0" max="99" aria-label="Tax rate" />
-            <span class="currency-symbol">%</span>
-          </div>
-          <div class="calc-right">
-            <button class="btn-calc" onclick="calcPreTax()">Calculate</button>
-          </div>
-        </div>
-      </div>
-      <div class="results-summary" id="summary-pretax">
-        <div class="summary-item"><span class="summary-value" id="pretax-result">—</span><span class="summary-label">Pre-tax price</span></div>
-        <div class="summary-item"><span class="summary-value" id="pretax-tax-amount">—</span><span class="summary-label">Tax amount</span></div>
+      <div class="summary-item">
+        <span class="summary-value" id="per-person">—</span>
+        <span class="summary-label">Per person</span>
       </div>
     </div>
 
-    <!-- Panel 3: Income tax -->
-    <div class="calc-panel" id="panel-income-tax">
-      <div class="calc-rows">
-        <div class="calc-row" role="group" aria-label="Annual income">
-          <div class="expr">
-            <span class="expr-label">Annual income</span>
-            <span class="currency-symbol">$</span>
-            <input type="number" id="income" placeholder="60000" step="1000" min="0" aria-label="Annual income" />
-          </div>
-        </div>
-        <div class="calc-row" role="group" aria-label="Filing status">
-          <div class="expr">
-            <span class="expr-label">Filing status</span>
-            <select id="filing-status" style="font-family:var(--mono);font-size:.92rem;padding:7px 10px;border:1.5px solid var(--rule);border-radius:var(--radius);background:#fff;color:var(--ink);outline:none;cursor:pointer;" aria-label="Filing status">
-              <option value="single">Single</option>
-              <option value="married">Married filing jointly</option>
-              <option value="head">Head of household</option>
-            </select>
-          </div>
-          <div class="calc-right">
-            <button class="btn-calc" onclick="calcIncomeTax()">Calculate</button>
-          </div>
-        </div>
-      </div>
-      <div class="income-result" id="income-result">
-        <div class="summary-item"><span class="summary-value" id="est-tax">—</span><span class="summary-label">Estimated federal tax</span></div>
-        <div class="summary-item"><span class="summary-value" id="eff-rate">—</span><span class="summary-label">Effective tax rate</span></div>
-        <div class="summary-item"><span class="summary-value" id="after-tax">—</span><span class="summary-label">After-tax income</span></div>
-        <div class="summary-item"><span class="summary-value" id="marginal-rate">—</span><span class="summary-label">Marginal tax rate</span></div>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <!-- USE CASES -->
 <hr class="section-divider" />
 <section class="content-section wrap" aria-labelledby="uses-heading">
-  <h2 class="section-heading" id="uses-heading">Common tax calculation scenarios</h2>
-  <p>Taxes affect nearly every financial decision. Here are the most common situations where knowing your tax amount matters.</p>
-  <div class="clearfix">
-    <div class="ad-slot ad-rectangle" aria-label="Advertisement">Advertisement · 336 × 280</div>
+  <h2 class="section-heading" id="uses-heading">When to use this calculator</h2>
+  <p>Tipping is expected in many service industries, not just restaurants. Here are the most common situations where knowing the right tip amount matters.</p>
+
     <div class="use-cases">
-      <div class="use-case-card"><div class="use-case-icon">🛒</div><div class="use-case-title">Online shopping</div><p class="use-case-desc">Calculate the true cost of a purchase before checkout, including your local sales tax rate.</p></div>
-      <div class="use-case-card"><div class="use-case-icon">🏠</div><div class="use-case-title">Real estate</div><p class="use-case-desc">Estimate property transfer taxes and calculate the pre-tax price of a home listing.</p></div>
-      <div class="use-case-card"><div class="use-case-icon">💼</div><div class="use-case-title">Freelance income</div><p class="use-case-desc">Estimate federal tax on self-employment income to set aside the right amount quarterly.</p></div>
-      <div class="use-case-card"><div class="use-case-icon">🚗</div><div class="use-case-title">Vehicle purchases</div><p class="use-case-desc">Find the total out-of-pocket cost of a car by adding sales tax to the sticker price.</p></div>
-      <div class="use-case-card"><div class="use-case-icon">💰</div><div class="use-case-title">Salary negotiation</div><p class="use-case-desc">Estimate your take-home pay after federal income tax before accepting a job offer.</p></div>
-      <div class="use-case-card"><div class="use-case-icon">🧾</div><div class="use-case-title">Business invoicing</div><p class="use-case-desc">Calculate the correct tax amount to add to client invoices for VAT or sales tax compliance.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🍽️</div><div class="use-case-title">Restaurants</div><p class="use-case-desc">Standard tip is 15–20% of the pre-tax bill. 20% is the most common benchmark for good service.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🚕</div><div class="use-case-title">Rideshare & taxis</div><p class="use-case-desc">10–20% is standard for Uber, Lyft, and taxis. Round up for great service or help with bags.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">💇</div><div class="use-case-title">Hair & beauty</div><p class="use-case-desc">15–20% is typical for hairdressers, nail technicians, and massage therapists.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🏨</div><div class="use-case-title">Hotel services</div><p class="use-case-desc">$2–5 per bag for bellhops, $2–5 per night for housekeeping, 15–20% for room service.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">🍕</div><div class="use-case-title">Food delivery</div><p class="use-case-desc">15–20% is recommended for delivery drivers, with a minimum of $3–5 for small orders.</p></div>
+      <div class="use-case-card"><div class="use-case-icon">☕</div><div class="use-case-title">Coffee shops</div><p class="use-case-desc">$1 per drink or 10–15% is common at coffee shops, though tipping is optional for counter service.</p></div>
     </div>
   </div>
 </section>
 
-<!-- AD: In-content banner -->
-<hr class="section-divider" />
-<div class="wrap" style="padding-top:32px;padding-bottom:32px;">
-  <div class="ad-slot ad-banner" aria-label="Advertisement">Advertisement · 728 × 90</div>
-</div>
-
-<!-- US Sales Tax by State -->
-<section class="content-section wrap" aria-labelledby="rates-heading">
-  <h2 class="section-heading" id="rates-heading">US state sales tax rates (2024)</h2>
-  <p>Sales tax rates vary by state. The table below shows the base statewide rate — note that combined rates including local taxes are often higher.</p>
-  <table class="formula-table" role="table" aria-label="US state sales tax rates">
-    <thead>
-      <tr>
-        <th scope="col">State</th>
-        <th scope="col">State rate</th>
-        <th scope="col">Avg. combined rate</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>California</td><td>7.25%</td><td>8.85%</td></tr>
-      <tr><td>Texas</td><td>6.25%</td><td>8.20%</td></tr>
-      <tr><td>New York</td><td>4.00%</td><td>8.52%</td></tr>
-      <tr><td>Florida</td><td>6.00%</td><td>7.02%</td></tr>
-      <tr><td>Illinois</td><td>6.25%</td><td>8.86%</td></tr>
-      <tr><td>Washington</td><td>6.50%</td><td>9.38%</td></tr>
-      <tr><td>Colorado</td><td>2.90%</td><td>7.77%</td></tr>
-      <tr><td>Oregon</td><td>0%</td><td>0%</td></tr>
-      <tr><td>Montana</td><td>0%</td><td>0%</td></tr>
-      <tr><td>New Hampshire</td><td>0%</td><td>0%</td></tr>
-    </tbody>
-  </table>
-</section>
 
 <!-- FAQ -->
-<hr class="section-divider" />
 <section class="content-section wrap" aria-labelledby="faq-heading">
   <h2 class="section-heading" id="faq-heading">Frequently asked questions</h2>
+  <p>Everything you need to know about tipping etiquette and how to calculate a tip correctly.</p>
   <div class="faq-list">
     <details>
-      <summary>How do you calculate sales tax?</summary>
+      <summary>How much should I tip at a restaurant?</summary>
       <div class="faq-body">
-        <p>Multiply the price by the tax rate divided by 100: <code>Tax = Price × (Rate ÷ 100)</code>.</p>
-        <p><strong>Example:</strong> $50 item at 8% tax: <code>$50 × 0.08 = $4.00 tax</code>. Total = <code>$50 + $4 = $54.00</code>.</p>
+        <p>The standard restaurant tip in the United States is <strong>15% to 20%</strong> of the pre-tax bill. As a general guide: 15% for adequate service, 18% for good service, and 20% or more for excellent service. If the service was poor due to the server (not the kitchen), 10% is acceptable.</p>
+        <p>In other countries tipping customs vary significantly — in Japan tipping is not customary and can be considered rude, while in the UK 10–15% is typical, and in Australia tipping is appreciated but not expected.</p>
       </div>
     </details>
     <details>
-      <summary>How do you find the price before tax?</summary>
+      <summary>How do you calculate a tip?</summary>
       <div class="faq-body">
-        <p>Divide the total (tax-inclusive) price by (1 + tax rate): <code>Pre-tax = Total ÷ (1 + Rate/100)</code>.</p>
-        <p><strong>Example:</strong> Total is $54 with 8% tax: <code>$54 ÷ 1.08 = $50.00</code>.</p>
+        <p>Multiply the bill by the tip percentage divided by 100: <code>Tip = Bill × (Tip% ÷ 100)</code>.</p>
+        <p><strong>Example:</strong> 20% tip on a $45.00 bill: <code>$45 × 0.20 = $9.00 tip</code>. Total = <code>$45 + $9 = $54.00</code>.</p>
+        <p>A quick mental math shortcut: move the decimal one place left to get 10%, then double it for 20%. For a $45 bill, 10% = $4.50, so 20% = $9.00.</p>
       </div>
     </details>
     <details>
-      <summary>What is the difference between marginal and effective tax rate?</summary>
+      <summary>How do you split a bill with tip between multiple people?</summary>
       <div class="faq-body">
-        <p>Your <strong>marginal tax rate</strong> is the rate applied to your last dollar of income — the highest bracket you fall into. Your <strong>effective tax rate</strong> is the average rate across all your income, calculated by dividing total tax paid by total income.</p>
-        <p>Example: If your marginal rate is 22% but your effective rate is 14%, you're only actually paying 14 cents in tax for every dollar earned overall.</p>
+        <p>Add the tip to the total bill, then divide by the number of people: <code>Per person = (Bill + Tip) ÷ People</code>.</p>
+        <p><strong>Example:</strong> $45 bill + $9 tip = $54 total ÷ 3 people = <strong>$18 per person</strong>.</p>
+        <p>If people ordered different amounts, it's fairer to calculate each person's tip individually based on what they ordered, then split any shared items equally.</p>
       </div>
     </details>
     <details>
-      <summary>What states have no sales tax?</summary>
+      <summary>Should you tip on the pre-tax or post-tax amount?</summary>
       <div class="faq-body">
-        <p>Five US states have no statewide sales tax: <strong>Oregon, Montana, New Hampshire, Delaware, and Alaska</strong>. However, Alaska allows local jurisdictions to impose sales taxes, so some Alaskan cities do charge sales tax.</p>
+        <p>Etiquette experts generally recommend tipping on the <strong>pre-tax amount</strong>, since tax is a government charge and not part of the service. However, tipping on the post-tax total is widely accepted and is slightly more generous to the server — the difference is usually less than a dollar.</p>
       </div>
     </details>
     <details>
-      <summary>What is VAT and how does it differ from sales tax?</summary>
+      <summary>Is it rude not to tip?</summary>
       <div class="faq-body">
-        <p><strong>VAT (Value Added Tax)</strong> is collected at every stage of production and distribution, with each business paying tax on the value they add. <strong>Sales tax</strong> is collected only at the final point of sale to the consumer. Both result in a similar final price to the consumer, but VAT is used in most countries outside the US, while sales tax is the US system.</p>
+        <p>In the United States, where servers often earn a sub-minimum tipped wage (as low as $2.13/hour federally), not tipping is generally considered rude and can significantly harm the server's income. Tips make up the majority of a server's earnings.</p>
+        <p>In countries where service charges are included in prices or where workers earn a living wage, not tipping is entirely acceptable — and in some cultures, tipping is actually discouraged.</p>
+      </div>
+    </details>
+    <details>
+      <summary>What is a standard tip for delivery?</summary>
+      <div class="faq-body">
+        <p>For food delivery, <strong>15–20%</strong> of the order total is recommended, with a minimum of $3–5 for small orders. For grocery or large item delivery, $5–10 is appropriate. Tipping more in bad weather or for long distances is considerate.</p>
       </div>
     </details>
   </div>
@@ -529,17 +410,16 @@
 <hr class="section-divider" />
 <section class="content-section wrap" aria-labelledby="about-heading">
   <h2 class="section-heading" id="about-heading">About this calculator</h2>
-  <p>This tax calculator has three modes: calculate sales tax on a purchase, reverse-calculate the pre-tax price from a total, and estimate US federal income tax using current 2024 tax brackets. The income tax estimate is for federal tax only and does not include state income tax, FICA, or deductions.</p>
-  <p>For professional tax advice, consult a qualified tax professional or CPA. This tool is for estimation purposes only.</p>
-
+  <p>This tip calculator is free, instant, and works entirely in your browser — no data is sent to any server. Enter your bill amount, select or type a tip percentage, and optionally split between any number of people. Results update live as you type.</p>
+  <p>Looking for more calculators? Try our other free tools:</p>
   <nav class="calc-pills-wrap" aria-label="Calculator pages">
     <p class="calc-pills-label">Try our other free calculators</p>
     <div class="calc-pills">
       <a href="/" class="calc-pill">Percentage Calculator</a>
-      <a href="/tip-calculator" class="calc-pill">Tip Calculator</a>
+      <a href="/tip-calculator" class="calc-pill active">Tip Calculator</a>
       <a href="/discount-calculator" class="calc-pill">Discount Calculator</a>
       <a href="/gpa-calculator" class="calc-pill">GPA Calculator</a>
-      <a href="/tax-calculator" class="calc-pill active">Tax Calculator</a>
+      <a href="/tax-calculator" class="calc-pill">Tax Calculator</a>
     </div>
   </nav>
   <div class="use-cases" style="margin-top:24px;">
@@ -547,11 +427,6 @@
       <div class="use-case-icon">🔢</div>
       <div class="use-case-title">Percentage Calculator</div>
       <p class="use-case-desc">Find a percentage of a number, reverse-calculate a percent, or compute percentage change.</p>
-    </a>
-    <a href="/tip-calculator" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
-      <div class="use-case-icon">🍽️</div>
-      <div class="use-case-title">Tip Calculator</div>
-      <p class="use-case-desc">Calculate restaurant tips and split the bill between any number of people.</p>
     </a>
     <a href="/discount-calculator" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
       <div class="use-case-icon">🏷️</div>
@@ -563,6 +438,11 @@
       <div class="use-case-title">GPA Calculator</div>
       <p class="use-case-desc">Calculate your semester or cumulative GPA using letter grades and credit hours.</p>
     </a>
+    <a href="/tax-calculator" class="use-case-card" style="text-decoration:none;color:inherit;display:block;">
+      <div class="use-case-icon">🧾</div>
+      <div class="use-case-title">Tax Calculator</div>
+      <p class="use-case-desc">Calculate sales tax, find pre-tax prices, or estimate your federal income tax.</p>
+    </a>
   </div>
 </section>
 
@@ -573,115 +453,47 @@
 
 <!-- CALCULATOR LOGIC -->
 <script>
-  // 2024 Federal income tax brackets
-  const BRACKETS = {
-    single: [
-      { min: 0,       max: 11600,  rate: 0.10 },
-      { min: 11600,   max: 47150,  rate: 0.12 },
-      { min: 47150,   max: 100525, rate: 0.22 },
-      { min: 100525,  max: 191950, rate: 0.24 },
-      { min: 191950,  max: 243725, rate: 0.32 },
-      { min: 243725,  max: 609350, rate: 0.35 },
-      { min: 609350,  max: Infinity, rate: 0.37 }
-    ],
-    married: [
-      { min: 0,       max: 23200,  rate: 0.10 },
-      { min: 23200,   max: 94300,  rate: 0.12 },
-      { min: 94300,   max: 201050, rate: 0.22 },
-      { min: 201050,  max: 383900, rate: 0.24 },
-      { min: 383900,  max: 487450, rate: 0.32 },
-      { min: 487450,  max: 731200, rate: 0.35 },
-      { min: 731200,  max: Infinity, rate: 0.37 }
-    ],
-    head: [
-      { min: 0,       max: 16550,  rate: 0.10 },
-      { min: 16550,   max: 63100,  rate: 0.12 },
-      { min: 63100,   max: 100500, rate: 0.22 },
-      { min: 100500,  max: 191950, rate: 0.24 },
-      { min: 191950,  max: 243700, rate: 0.32 },
-      { min: 243700,  max: 609350, rate: 0.35 },
-      { min: 609350,  max: Infinity, rate: 0.37 }
-    ]
-  };
+  function fmt(n) {
+    return '$' + parseFloat(n).toFixed(2);
+  }
 
-  function fmtCurrency(n) { return '$' + parseFloat(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-  function fmtPct(n) { return parseFloat(n.toFixed(2)) + '%'; }
-
-  function switchTab(tab) {
-    const tabs = ['sales-tax','pre-tax','income-tax'];
-    document.querySelectorAll('.calc-tab').forEach((t, i) => {
-      t.classList.toggle('active', tabs[i] === tab);
+  function setTip(pct) {
+    document.getElementById('tip-pct').value = pct;
+    document.querySelectorAll('.tip-preset').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === pct + '%');
     });
-    document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('panel-' + tab).classList.add('active');
+    calculate();
   }
 
-  function setRate(rate) {
-    document.getElementById('tax-rate').value = rate;
-    document.querySelectorAll('.rate-preset').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent === rate + '%');
-    });
-    calcSalesTax();
-  }
+  function calculate() {
+    const bill    = parseFloat(document.getElementById('bill').value);
+    const tipPct  = parseFloat(document.getElementById('tip-pct').value);
+    const people  = parseInt(document.getElementById('people').value) || 1;
 
-  function calcSalesTax() {
-    const price = parseFloat(document.getElementById('price').value);
-    const rate  = parseFloat(document.getElementById('tax-rate').value);
-    const s     = document.getElementById('summary-sales');
-    if (isNaN(price) || isNaN(rate)) { s.classList.remove('visible'); return; }
-    const tax   = price * (rate / 100);
-    const total = price + tax;
-    document.getElementById('tax-amount').textContent    = fmtCurrency(tax);
-    document.getElementById('total-price').textContent   = fmtCurrency(total);
-    document.getElementById('pre-tax-display').textContent = fmtCurrency(price);
-    s.classList.add('visible');
-  }
+    const summary = document.getElementById('results-summary');
 
-  function calcPreTax() {
-    const total = parseFloat(document.getElementById('total-with-tax').value);
-    const rate  = parseFloat(document.getElementById('tax-rate-2').value);
-    const s     = document.getElementById('summary-pretax');
-    if (isNaN(total) || isNaN(rate) || rate >= 100) { s.classList.remove('visible'); return; }
-    const pre = total / (1 + rate / 100);
-    const tax = total - pre;
-    document.getElementById('pretax-result').textContent    = fmtCurrency(pre);
-    document.getElementById('pretax-tax-amount').textContent = fmtCurrency(tax);
-    s.classList.add('visible');
-  }
-
-  function calcIncomeTax() {
-    const income = parseFloat(document.getElementById('income').value);
-    const status = document.getElementById('filing-status').value;
-    const s      = document.getElementById('income-result');
-    if (isNaN(income) || income < 0) { s.classList.remove('visible'); return; }
-
-    const brackets = BRACKETS[status];
-    let tax = 0;
-    let marginalRate = 0;
-
-    for (const b of brackets) {
-      if (income <= b.min) break;
-      const taxable = Math.min(income, b.max) - b.min;
-      tax += taxable * b.rate;
-      if (income > b.min) marginalRate = b.rate;
+    if (isNaN(bill) || isNaN(tipPct)) {
+      summary.classList.add('hidden');
+      return;
     }
 
-    const effectiveRate = income > 0 ? (tax / income) * 100 : 0;
-    const afterTax = income - tax;
+    const tip       = bill * (tipPct / 100);
+    const total     = bill + tip;
+    const perPerson = total / people;
 
-    document.getElementById('est-tax').textContent    = fmtCurrency(tax);
-    document.getElementById('eff-rate').textContent   = fmtPct(effectiveRate);
-    document.getElementById('after-tax').textContent  = fmtCurrency(afterTax);
-    document.getElementById('marginal-rate').textContent = fmtPct(marginalRate * 100);
-    s.classList.add('visible');
+    document.getElementById('tip-amount').textContent  = fmt(tip);
+    document.getElementById('total-amount').textContent = fmt(total);
+    document.getElementById('per-person').textContent  = fmt(perPerson);
+
+    summary.classList.remove('hidden');
   }
 
   // Live calc
-  ['price','tax-rate'].forEach(id => document.getElementById(id).addEventListener('input', calcSalesTax));
-  ['total-with-tax','tax-rate-2'].forEach(id => document.getElementById(id).addEventListener('input', calcPreTax));
-  ['income'].forEach(id => document.getElementById(id).addEventListener('input', calcIncomeTax));
-  document.getElementById('filing-status').addEventListener('change', calcIncomeTax);
+  ['bill','tip-pct','people'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calculate);
+  });
 
+  // Enter key
   document.addEventListener('keydown', e => {
     if (e.key === 'Enter') document.activeElement.blur();
   });
